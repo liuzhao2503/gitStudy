@@ -1,0 +1,54 @@
+<!--pages/shop/Returngoods/Returngoods.wxml-->
+<view class='returngoods_box'>
+    <view class='returngoods_top'>
+        <view class='returngoods_top_left'>
+            <image src='{{commodityimg}}' class='returngoods_top_left_img'></image>
+        </view>
+        <view class='returngoods_top_right'>
+            <view class='returngoods_top_right_top'>{{commodityname}}</view>
+            <view class='returngoods_top_right_bottom'> <view>￥{{commodityPrice}}</view> <view class='returngoods_top_right_bottom_right'>x{{commoditynum}}</view></view>
+        </view>
+    </view>
+    <view class='returngoods_Middle'>
+        <view class='returngoods_Middle_list'>
+            <view class='returngoods_Middle_list_z'>服务类型</view>
+            <view class='returngoods_Middle_list_r'>{{ Servicetype}}</view>
+        </view>
+        <view class='returngoods_Middle_list'>
+            <view class='returngoods_Middle_list_z'>退款方式</view>
+            <view class='returngoods_Middle_list_r'>{{Refunds}}</view>
+        </view>
+        <view class='returngoods_Middle_textwt'>
+            <view class='returngoods_Middle_list_t'>问题描述</view>
+            <textarea class='returngoods_Middle_list_text' placeholder='请输入退货原因' value='{{problem}}' bindinput='bind_input_obj1'></textarea>
+        </view>
+        <view class='returngoods_Middle_list'>
+            <view class='returngoods_Middle_list_z'>联系人</view>
+            <view class='returngoods_Middle_list_r'><input type='text' value='{{lxname}}' placeholder='请输入联系人' bindinput='bind_input_obj2'></input></view>
+        </view>
+        <view class='returngoods_Middle_list'>
+            <view class='returngoods_Middle_list_z'>联系方式</view>
+            <view class='returngoods_Middle_list_r'><input type='number' maxlength='11' value='{{lxtel}}' placeholder='请输入联系方式' bindinput='bind_input_obj3'></input></view>
+        </view>
+    </view>
+    <view>
+        <text class="pay_text">退货方式</text>
+        <view class="pay_view">
+            <radio-group bindchange="goodsreceiptradioChange">
+                <label class="" wx:for="{{goodsreceipt}}" wx:for-item="goodsreceipt">
+                    <view class="payfor_item {{goodsreceipt.item_border}}">
+                        <text class="icon iconfont {{goodsreceipt.ico}}"></text>
+                        <text class="payfor_item_text">{{goodsreceipt.value}}</text>
+                        <view class="item_check_2">
+                            <image class='item_check_dx' src='{{goodsreceipt.checked?"../../../img/dx2.png":"../../../img/dx.png"}}'></image>
+                        </view>
+                        <radio class="payfor_item_radio" value="{{goodsreceipt.name}}" checked="{{goodsreceipt.checked}}" />
+                    </view>
+                </label>
+            </radio-group>
+        </view>
+    </view>
+    <view class='orderdetails_bottom'>
+        <button bindtap='return_goods_submit'>确认</button>
+    </view>
+</view>

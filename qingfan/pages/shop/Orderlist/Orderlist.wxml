@@ -1,0 +1,218 @@
+<view class="orderlist_box">
+    <view class='orderlist_top'>
+        <view class='orderlist_top_statusall'>
+            <picker class='orderlist_top_status' bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                <view class="picker">
+                    {{array[index]}}
+                </view>
+            </picker>
+            <image class='orderlist_top_sj' src='../../../img/sanjiao.png'></image>
+        </view>
+        <scroll-view class='orderlist_topscroll-view' scroll-x="true" style=" white-space: nowrap;display: flex;width:78%">
+            <view class='orderlist_top_nav {{activeb==0?"active":""}}' bindtap='topnavactiveb' data-navindex="0">全部</view>
+            <view class='orderlist_top_nav {{activeb==1?"active":""}}' bindtap='topnavactiveb' data-navindex="1">待付款</view>
+            <view class='orderlist_top_nav {{activeb==2?"active":""}}' bindtap='topnavactiveb' data-navindex="2">待发货</view>
+            <view class='orderlist_top_nav {{activeb==3?"active":""}}' bindtap='topnavactiveb' data-navindex="3">待收货</view>
+            <view class='orderlist_top_nav {{activeb==4?"active":""}}' bindtap='topnavactiveb' data-navindex="4">待评论</view>
+            <view class='orderlist_top_nav {{activeb==5?"active":""}}' bindtap='topnavactiveb' data-navindex="5">退款/退货</view>
+        </scroll-view>
+    </view>
+    <view class='orderlist_listall'>
+        <swiper current="{{activeb}}" class="swiper-box" duration="300" style='height:100%' bindchange="bindChangeb">
+            <swiper-item>
+                <scroll-view class='swiper-itemcontent' scroll-y="true" style='height:100%'>
+                    <view class='itemcontent_list' wx:for="{{orderlist}}" wx:for-index="in" wx:key="in" >
+                        <view class='itemcontent_listbox'>
+                            <view class='itemcontent_list_top'>
+                                <view class='itemcontent_list_top_left'>订单编号 {{item.ordernumber}}</view>
+                                <view class='itemcontent_list_top_right'>
+                                    {{item.orderstate==1?"等待买家付款":""}}
+                                    {{item.orderstate==2?"等待卖家发货":""}}
+                                    {{item.orderstate==3?"到店自提":""}}
+                                    {{item.orderstate==4?"卖家已发货":""}}
+                                    {{item.orderstate==5?"待评论":""}}
+                                    {{item.orderstate==6?"待评论":""}}
+                                    {{item.orderstate==7?"交易完成":""}}
+                                    {{item.orderstate==8?"商家已同意":""}}
+                                    {{item.orderstate==9?"商家已同意":""}}
+                                    {{item.orderstate==10?"退款中":""}}
+                                    {{item.orderstate==11?"拒绝退货":""}}
+                                    {{item.orderstate==12?"已退货 ":""}}
+                                    {{item.orderstate==13?"交易关闭":""}}
+                                    {{item.orderstate==14?"交易关闭":""}}
+                                </view> 
+                            </view>
+                            <view class='itemcontent_list_data'>
+                                <view><image src="{{item.img}}"></image></view>
+                                <view class='itemcontent_list_dataMiddle'>
+                                    <view class='itemcontent_list_data_name'>{{item.name}}</view>
+                                    <view class='itemcontent_list_data_Pricenum'>
+                                        <view class='itemcontent_list_data_Price'>￥{{item.Price}}</view>
+                                        <view class='itemcontent_list_data_num'>X {{item.num}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class='itemcontent_list_data_bottom'><text class='itemcontent_list_data_money'>共计￥{{item.totalPrice}}</text><text class='itemcontent_list_data_money'>优惠￥{{item.discounts}}</text><text class='itemcontent_list_data_money moneyhtb'>实付<text>￥{{item.Paid}}</text></text></view>
+                            <view class='itemcontent_list_bottombtn'>
+                                <button class='' data-index="{{in}}" data-orderstate="{{item.orderstate}}" wx:if="{{item.orderstate==1||item.orderstate==2||item.orderstate==3||item.orderstate==5||item.orderstate==6}}">{{item.orderstate==1||item.orderstate==2||item.orderstate==3?"取消订单":""}}{{item.orderstate==5?"退货":""}}{{item.orderstate==6?"退货":""}}</button>
+                                <button class='active' data-index="{{in}}" data-orderstate="{{item.orderstate}}" wx:if="{{item.orderstate==1||item.orderstate==3||item.orderstate==4||item.orderstate==5||item.orderstate==6||item.orderstate==8||item.orderstate==9||item.orderstate==11}}">{{item.orderstate==1?"去支付":""}}{{item.orderstate==3?"确认取货":""}}{{item.orderstate==4?"确认收货":""}}{{item.orderstate==5?"评论":""}}{{item.orderstate==6?"评论":""}}{{item.orderstate==8?"填写退货信息":""}}{{item.orderstate==9?"查看退货地址":""}}{{item.orderstate==11?"查看原因":""}}</button>
+                                <button class='disabled' disabled wx:if="{{item.orderstate==10||item.orderstate==12||item.orderstate==7||item.orderstate==13||item.orderstate==14}}">{{item.orderstate==10?"等待商家确认":""}}{{item.orderstate==12?"退货完成":""}}{{item.orderstate==7?"已评价":""}}{{item.orderstate==13?"已取消":""}}{{item.orderstate==14?"已退款":""}}</button>
+                            </view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+            <swiper-item>
+                <scroll-view class='swiper-itemcontent' scroll-y="true" style='height:100%'>
+                    <view class='itemcontent_list' wx:for="{{Pendingpayment}}" wx:for-index="in" wx:key="in" >
+                        <view class='itemcontent_listbox'>
+                            <view class='itemcontent_list_top'>
+                                <view class='itemcontent_list_top_left'>订单编号 {{item.ordernumber}}</view>
+                                <view class='itemcontent_list_top_right'>
+                                    {{item.orderstate==1?"等待买家付款":""}}
+                                </view> 
+                            </view>
+                            <view class='itemcontent_list_data'>
+                                <view><image src="{{item.img}}"></image></view>
+                                <view class='itemcontent_list_dataMiddle'>
+                                    <view class='itemcontent_list_data_name'>{{item.name}}</view>
+                                    <view class='itemcontent_list_data_Pricenum'>
+                                        <view class='itemcontent_list_data_Price'>￥{{item.Price}}</view>
+                                        <view class='itemcontent_list_data_num'>X {{item.num}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class='itemcontent_list_data_bottom'><text class='itemcontent_list_data_money'>共计￥{{item.totalPrice}}</text><text class='itemcontent_list_data_money'>优惠￥{{item.discounts}}</text><text class='itemcontent_list_data_money moneyhtb'>实付<text>￥{{item.Paid}}</text></text></view>
+                            <view class='itemcontent_list_bottombtn'>
+                                <button class='' data-index="{{in}}" data-orderstate="{{item.orderstate}}" wx:if="{{item.orderstate==1}}">{{item.orderstate==1?"取消订单":""}}</button>
+                                <button class='active' data-index="{{in}}" data-orderstate="{{item.orderstate}}" wx:if="{{item.orderstate==1}}">{{item.orderstate==1?"去支付":""}}</button>
+                            </view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+            <swiper-item>
+                <scroll-view class='swiper-itemcontent' scroll-y="true" style='height:100%'>
+                    <view class='itemcontent_list' wx:for="{{Pendingdelivery}}" wx:for-index="in" wx:key="in" >
+                        <view class='itemcontent_listbox'>
+                            <view class='itemcontent_list_top'>
+                                <view class='itemcontent_list_top_left'>订单编号 {{item.ordernumber}}</view>
+                                <view class='itemcontent_list_top_right'>
+                                    {{item.orderstate==2?"等待卖家发货":""}}
+                                </view> 
+                            </view>
+                            <view class='itemcontent_list_data'>
+                                <view><image src="{{item.img}}"></image></view>
+                                <view class='itemcontent_list_dataMiddle'>
+                                    <view class='itemcontent_list_data_name'>{{item.name}}</view>
+                                    <view class='itemcontent_list_data_Pricenum'>
+                                        <view class='itemcontent_list_data_Price'>￥{{item.Price}}</view>
+                                        <view class='itemcontent_list_data_num'>X {{item.num}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class='itemcontent_list_data_bottom'><text class='itemcontent_list_data_money'>共计￥{{item.totalPrice}}</text><text class='itemcontent_list_data_money'>优惠￥{{item.discounts}}</text><text class='itemcontent_list_data_money moneyhtb'>实付<text>￥{{item.Paid}}</text></text></view>
+                            <view class='itemcontent_list_bottombtn'>
+                                <button class='' data-index="{{in}}" data-orderstate="{{item.orderstate}}" wx:if="{{item.orderstate==2}}">{{item.orderstate==2?"取消订单":""}}</button>
+                            </view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+            <swiper-item>
+                <scroll-view class='swiper-itemcontent' scroll-y="true" style='height:100%'>
+                    <view class='itemcontent_list' wx:for="{{Goodsreceipt}}" wx:for-index="in" wx:key="in" >
+                        <view class='itemcontent_listbox'>
+                            <view class='itemcontent_list_top'>
+                                <view class='itemcontent_list_top_left'>订单编号 {{item.ordernumber}}</view>
+                                <view class='itemcontent_list_top_right'>
+                                    {{item.orderstate==3?"到店自提":""}}
+                                    {{item.orderstate==4?"卖家已发货":""}}
+                                </view> 
+                            </view>
+                            <view class='itemcontent_list_data'>
+                                <view><image src="{{item.img}}"></image></view>
+                                <view class='itemcontent_list_dataMiddle'>
+                                    <view class='itemcontent_list_data_name'>{{item.name}}</view>
+                                    <view class='itemcontent_list_data_Pricenum'>
+                                        <view class='itemcontent_list_data_Price'>￥{{item.Price}}</view>
+                                        <view class='itemcontent_list_data_num'>X {{item.num}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class='itemcontent_list_data_bottom'><text class='itemcontent_list_data_money'>共计￥{{item.totalPrice}}</text><text class='itemcontent_list_data_money'>优惠￥{{item.discounts}}</text><text class='itemcontent_list_data_money moneyhtb'>实付<text>￥{{item.Paid}}</text></text></view>
+                            <view class='itemcontent_list_bottombtn'>
+                                <button class='' data-index="{{in}}" data-orderstate="{{item.orderstate}}" wx:if="{{item.orderstate==3}}">{{item.orderstate==3?"取消订单":""}}</button>
+                                <button class='active' data-index="{{in}}" data-orderstate="{{item.orderstate}}" wx:if="{{item.orderstate==3||item.orderstate==4}}">{{item.orderstate==3?"确认取货":""}}{{item.orderstate==4?"确认收货":""}}</button>
+                            </view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+            <swiper-item>
+                <scroll-view class='swiper-itemcontent' scroll-y="true" style='height:100%'>
+                   <view class='itemcontent_list' wx:for="{{comment}}" wx:for-index="in" wx:key="in" >
+                        <view class='itemcontent_listbox'>
+                            <view class='itemcontent_list_top'>
+                                <view class='itemcontent_list_top_left'>订单编号 {{item.ordernumber}}</view>
+                                <view class='itemcontent_list_top_right'>
+                                    {{item.orderstate==5?"待评论":""}}
+                                    {{item.orderstate==6?"待评论":""}}
+                                </view> 
+                            </view>
+                            <view class='itemcontent_list_data'>
+                                <view><image src="{{item.img}}"></image></view>
+                                <view class='itemcontent_list_dataMiddle'>
+                                    <view class='itemcontent_list_data_name'>{{item.name}}</view>
+                                    <view class='itemcontent_list_data_Pricenum'>
+                                        <view class='itemcontent_list_data_Price'>￥{{item.Price}}</view>
+                                        <view class='itemcontent_list_data_num'>X {{item.num}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class='itemcontent_list_data_bottom'><text class='itemcontent_list_data_money'>共计￥{{item.totalPrice}}</text><text class='itemcontent_list_data_money'>优惠￥{{item.discounts}}</text><text class='itemcontent_list_data_money moneyhtb'>实付<text>￥{{item.Paid}}</text></text></view>
+                            <view class='itemcontent_list_bottombtn'>
+                                <button class='' data-index="{{in}}" data-orderstate="{{item.orderstate}}" wx:if="item.orderstate==5||item.orderstate==6">{{item.orderstate==5||item.orderstate==6?"退货":""}}</button>
+                                <button class='active' data-index="{{in}}" data-orderstate="{{item.orderstate}}" wx:if="{{item.orderstate==5||item.orderstate==6}}">{{item.orderstate==5||item.orderstate==6?"评论":""}}</button>
+                            </view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+            <swiper-item>
+                <scroll-view class='swiper-itemcontent' scroll-y="true" style='height:100%'>
+                    <view class='itemcontent_list' wx:for="{{retreat}}" wx:for-index="in" wx:key="in" >
+                        <view class='itemcontent_listbox'>
+                            <view class='itemcontent_list_top'>
+                                <view class='itemcontent_list_top_left'>订单编号 {{item.ordernumber}}</view>
+                                <view class='itemcontent_list_top_right'>
+                                    {{item.orderstate==8?"商家已同意":""}}
+                                    {{item.orderstate==9?"商家已同意":""}}
+                                    {{item.orderstate==10?"退款中":""}}
+                                    {{item.orderstate==11?"拒绝退货":""}}
+                                    {{item.orderstate==12?"已退货 ":""}}
+                                    {{item.orderstate==14?"交易关闭 ":""}}
+                                </view> 
+                            </view>
+                            <view class='itemcontent_list_data'>
+                                <view><image src="{{item.img}}"></image></view>
+                                <view class='itemcontent_list_dataMiddle'>
+                                    <view class='itemcontent_list_data_name'>{{item.name}}</view>
+                                    <view class='itemcontent_list_data_Pricenum'>
+                                        <view class='itemcontent_list_data_Price'>￥{{item.Price}}</view>
+                                        <view class='itemcontent_list_data_num'>X {{item.num}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class='itemcontent_list_data_bottom'><text class='itemcontent_list_data_money'>共计￥{{item.totalPrice}}</text><text class='itemcontent_list_data_money'>优惠￥{{item.discounts}}</text><text class='itemcontent_list_data_money moneyhtb'>实付<text>￥{{item.Paid}}</text></text></view>
+                            <view class='itemcontent_list_bottombtn'>
+                                <button class='active' data-index="{{in}}" data-orderstate="{{item.orderstate}}" wx:if="{{item.orderstate==8||item.orderstate==9||item.orderstate==11}}">{{item.orderstate==8?"填写退货信息":""}}{{item.orderstate==9?"查看退货地址":""}}{{item.orderstate==11?"查看原因":""}}</button>
+                                <button class='disabled' disabled wx:if="{{item.orderstate==10||item.orderstate==12||item.orderstate==14}}">{{item.orderstate==10?"等待商家确认":""}}{{item.orderstate==12?"退货完成":""}}{{item.orderstate==14?"已退款":""}}</button>
+                            </view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+        </swiper>
+    </view>
+</view>

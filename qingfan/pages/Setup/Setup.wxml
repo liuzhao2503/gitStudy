@@ -1,0 +1,36 @@
+<!--pages/Setup/Setup.wxml-->
+<view class='setup_box'>
+    <navigator class="setup_list" url="../Setup/bangtel/bangtel" wx:if="{{userinfo.data.telephone==0}}">
+        <view class='setup_list_tel'>绑定手机号</view>
+        <view class='setup_list_telinputall'>
+            <image src='../../img/ljt.png'></image>
+        </view>
+    </navigator>
+    <navigator class="setup_list" url="../Setup/modifytel/modifytel" wx:if="{{userinfo.data.telephone!=0}}">
+        <view class='setup_list_tel'>修改手机号</view>
+        <view class='setup_list_telinputall'>
+            <image src='../../img/ljt.png'></image>
+        </view>
+    </navigator>
+    <navigator class="setup_list" bindtap='setpay' url="{{userinfo.data.telephone!=0?'../edit_password/edit_password':''}}" wx:if="{{userinfo.data.pay==0}}">
+        <view class='setup_list_tel'>设置支付密码</view>
+        <view class='setup_list_telinputall'>
+            <image src='../../img/ljt.png'></image>
+        </view>
+    </navigator>
+    <navigator class="setup_list" url="modifypaymentm/modifytelpaymentm" wx:if="{{userinfo.data.pay==1}}">
+        <view class='setup_list_tel'>修改支付密码</view>
+        <view class='setup_list_telinputall'>
+            <image src='../../img/ljt.png'></image>
+        </view>
+    </navigator>
+    <navigator class="setup_list" url="forgetpaymentm/forgetpaymentm" wx:if="{{userinfo.data.pay==1}}">
+        <view class='setup_list_tel'>忘记支付密码</view>
+        <view class='setup_list_telinputall'>
+            <image src='../../img/ljt.png'></image>
+        </view>
+    </navigator>
+    <!-- <view class='setup_bottom'>
+        <button bindtap='tuibtn'>退出登录</button>
+    </view> -->
+</view>

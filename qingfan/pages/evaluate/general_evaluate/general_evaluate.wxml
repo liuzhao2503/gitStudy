@@ -1,0 +1,41 @@
+<view class="choose">
+    <view class="choose_border">
+        <view class="{{cut?'button_1':'button_2'}}" bindtap="to_order">预约评价</view>
+        <view class="{{cut?'button_2':'button_1'}}" bindtap="to_commodity">商品评价</view>
+    </view>
+</view>
+<view class="choose_list">
+    <!-- <view class='choose_list_wu' wx:if="{{cut&&commodity_list.length==0}}">暂无评论</view>
+    <view class='choose_list_wu' wx:if="{{!cut&&order_list.length==0}}">暂无评论</view> -->
+    <block wx:for="{{cut?order_list:commodity_list}}" wx:for-index="index" wx:for-item="evaluate_list" wx:key="index">
+        <view class="evaluate">
+            <view class="evaluate_user">
+                <view class="user_headimg">
+                    <image src="{{evaluate_list.interlinking}}" class="headimg" />
+                </view>
+                <view class="user_name_view">
+                    <text class="user_name">{{evaluate_list.username}}</text>
+                    <view class="user_evaluate">
+                        <view class='index_content_list_icon-star'>
+                            <text class="icon iconfont icon-star {{evaluate_list.star==1?'index_content_starw':''}} {{evaluate_list.star>1?'active':''}}"></text>
+                            <text class="icon iconfont icon-star {{evaluate_list.star==3?'index_content_starw':''}} {{evaluate_list.star>3?'active':''}}"></text>
+                            <text class="icon iconfont icon-star {{evaluate_list.star==5?'index_content_starw':''}} {{evaluate_list.star>5?'active':''}}"></text>
+                            <text class="icon iconfont icon-star {{evaluate_list.star==7?'index_content_starw':''}} {{evaluate_list.star>7?'active':''}}"></text>
+                            <text class="icon iconfont icon-star {{evaluate_list.star==9?'index_content_starw':''}} {{evaluate_list.star>9?'active':''}}"></text>
+                        </view>
+                    </view>
+                </view>
+                <text class="hairdresser">{{evaluate_list.barber_name}}</text>
+            </view>
+            <text class="user_text">{{evaluate_list.comment}}</text>
+            <view class="user_photo">
+                <block wx:for="{{evaluate_list.img}}" wx:for-index="inx" wx:for-item="listimg" wx:key="inx" >
+                    <image src="{{listimg}}" class="the_photo" data-img="{{listimg}}" data-index="{{index}}" bindtap='evaluate_listimg' />
+                </block>
+            </view>
+            <view class="evaluate_time_view">
+                <text class="evaluate_time">{{evaluate_list.create_time}}</text>
+            </view>
+        </view>
+    </block>
+</view>

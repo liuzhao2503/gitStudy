@@ -1,0 +1,56 @@
+/* pages/shop/Returninformation/Returninformation.wxss */
+.returninformation_box{
+    padding-top: 26rpx;
+}
+.returninformation_content_left{
+    font-size: 30rpx;
+    float: left;
+    color: #393838;
+}
+.returninformation_content_right{
+    font-size: 30rpx;    
+    color: #8f8e8e;
+    padding-left: 154rpx;
+}
+.returninformation_content{
+    background: #fff;
+    padding: 0 50rpx 0 59rpx;
+    height:100rpx;
+    line-height: 100rpx;
+    border-bottom: 1px solid #f7f7f7;
+}
+.returninformation_content.returninformation_contenttb{
+    height: 150rpx;
+    line-height: 100rpx;
+}
+.returninformation_content.returninformation_contenttb .returninformation_content_right{
+    line-height: 40rpx;
+    padding-top: 31rpx
+}
+.returninformation_content.returninformation_contenttext{
+    height: 300rpx;
+}
+.returninformation_content_right input{
+    font-size: 30rpx;
+    height: 100rpx;
+}
+.returninformation_contenttext .returninformation_content_right{
+    padding-top: 23rpx;
+}
+.returninformation_content_right textarea{
+    font-size: 30rpx;
+    line-height: 40rpx;
+    padding: 5rpx 10rpx;
+    width: 485rpx;
+	height: 242rpx;
+    border: 1px solid #a4a4a4;
+}
+.returninformation_btn button{
+    margin-top: 100rpx;
+    width: 90%;
+    border: 0;
+    color: #fff;
+    font-size: 36rpx;
+    background: #ff740e;
+    border-radius: 27rpx;
+}

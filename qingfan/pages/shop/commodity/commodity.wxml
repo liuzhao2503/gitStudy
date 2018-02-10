@@ -1,0 +1,58 @@
+<view class="commodity_box">
+    <view class='commodity_top_all'>
+        <view class='commodity_top'>
+            <image mode='widthFix' class='commodity_top_img' src='{{commodityimg}}'></image>
+        </view>
+        <view class='commodity_top_onedata'>
+            <view class='commodity_top_onedata_right'>现价
+                <text class='commodity_top_onedata_right_gl'>￥{{newpriceBefore}}.<text class='commodity_top_onedata_right_xs'>{{newpriceafter}}</text></text>原价
+                <text class='commodity_top_onedata_rightoldprice'>{{oldprice}}</text>
+            </view>
+            <view class='commodity_top_onedata_left'>月销 {{Monthlysales}} 笔</view>
+        </view>
+        <view class='commodity_top_twodata'>
+            <view class='commodity_top_twodata_commodityname'>{{commodityname}}</view>
+            <view class='commodity_top_twodata_express'>快递 {{express}} 元</view>
+        </view>
+    </view>
+    <view class='commodity_content'>
+        <view class='commodity_content_nav'>
+            <view class='{{navactive==1?"active":""}}' bindtap='details'>商品详情</view>
+            <view class='{{navactive==2?"active":""}}' bindtap='evaluate'>商品评价</view>
+        </view>
+        <view class='commodity_content_details' wx:if="{{navactive==1}}">
+            <image wx:for="{{detailsimage}}" src="{{item.interlinking}}" wx:key="index" mode="widthFix"></image>
+        </view>
+        <view class='commodity_content_evaluate' wx:if="{{navactive==2}}">
+            <view class='commodity_content_evaluate_wu' wx:if="{{evaluatelist.length==0}}">暂无评价</view>
+            <view class='commodity_content_evaluate_list' wx:for="{{evaluatelist}}" wx:for-item="i">
+                <view class='commodity_content_evaluate_listtop'>
+                    <view class='commodity_content_evaluate_listtop_left'>
+                        <image class='commodity_content_evaluate_listhead' src='{{i.interlinking}}'></image>
+                    </view>
+                    <view class='commodity_content_evaluate_listtop_left_name'>{{i.username}}</view>  
+                    <view class='commodity_content_evaluate_listtop_right'>
+                        <text class="icon iconfont icon-star {{i.star==1?'index_content_starw':''}} {{i.star>1?'active':''}}"></text>
+                        <text class="icon iconfont icon-star {{i.star==3?'index_content_starw':''}} {{i.star>3?'active':''}}"></text>
+                        <text class="icon iconfont icon-star {{i.star==5?'index_content_starw':''}} {{i.star>5?'active':''}}"></text>
+                        <text class="icon iconfont icon-star {{i.star==7?'index_content_starw':''}} {{i.star>7?'active':''}}"></text>
+                        <text class="icon iconfont icon-star {{i.star==9?'index_content_starw':''}} {{i.star>9?'active':''}}"></text> 
+                    </view>
+                </view>
+                <view class='commodity_content_evaluate_list_text'>{{i.conmment}}</view>
+                <view class='commodity_content_evaluate_list_imgall'>
+                    <image class='commodity_content_evaluate_list_img'  wx:for="{{i.img}}" wx:for-index="ind" src="{{item}}" data-imgindex="{{ind}}" data-index="{{index}}" bindtap="previewImageall" wx:key="ind"></image>
+                </view>
+                <view class='commodity_content_evaluate_list_time'>{{i.create_time}}</view>
+            </view>
+        </view>
+    </view>
+    <view class='commodity_bottom'>
+        <view class='commodity_bottom_right'>购买数量
+            <text bindtap='minus' class='icon iconfont icon-minus'></text>
+            <text class='commodity_bottomnum'>{{num}}</text>
+            <text bindtap='plus' class='icon iconfont icon-plus'></text>
+        </view>
+        <button class='Placeanorder' bindtap='Placeanorder'>立即购买</button>
+    </view>
+</view>

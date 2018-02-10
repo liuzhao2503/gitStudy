@@ -1,0 +1,66 @@
+<!--index.wxml-->
+<view class='index_box'>
+    <view class='index_top_all'>
+        <view class='index_top'>
+            <view class='index_top_left' bindtap='showactionsheet'>
+                <!-- <picker mode="region" bindchange="bindRegionChange" value="{{region}}"> -->
+                    <view class="picker">
+                        <text class='icon iconfont icon-dingwei'></text>
+                        <text class='index_address'>{{region[2]}}</text>
+                    </view>
+                <!-- </picker> -->
+            </view>
+            <view class='index_top_middle'>
+                <input type='text' bindinput='sousuoinput' value='{{sousuo}}' placeholder='请输入理发店搜索'></input>
+                <image src='../../img/sou.png' bindtap='sousuobtn'></image>
+            </view>
+            <view class='index_top_right' bindtap="ercode">
+                <text class='icon iconfont icon-saoma'></text>
+            </view>
+        </view>
+        <swiper class='index_swiper' circular="true" indicator-dots="{{indicatorDots}}" indicator-color="rgba(255, 255, 255, 0.6)" indicator-active-color="#fff" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+            <block wx:for="{{imgUrls}}" wx:key="index">
+                <swiper-item>
+                    <image mode='widthFix' src="{{item.img}}" class="slide-image" width="355" height="150" bindtap='goto_imgxq' data-id="{{item.carouset_id}}" />
+                </swiper-item>
+            </block>
+        </swiper>
+        <view class='index_content_top'>
+            <view class="{{tabber?'active':''}}" bindtap="inputtabber1">附近店铺</view>
+            <view class="{{tabber?'':'active'}}" bindtap="inputtabber2">推荐店铺</view>
+        </view>
+    </view>
+    <action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetbindchange">
+        <action-sheet-item bindtap="bindaddress" data-address="1">自动定位当前位置</action-sheet-item>
+        <action-sheet-item bindtap="bindaddress" data-address="2">
+            <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+                <text class=''>选择定位</text>
+            </picker>
+        </action-sheet-item>
+        <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+    </action-sheet>
+    <navigator class='index_Check' url="../Settled/Settled">我要入驻</navigator>
+    <navigator url='../discount_coupon/collardiscount_coupon?id=0' class='index_Coupon'>
+        <icon class='icon iconfont icon-Coupons'></icon> 优惠券</navigator>
+    <view class='index_content'>
+
+        <view class='index_content_list'>
+            <view class='index_content_list_wu' wx:if="{{indexlist.length==0}}">暂无数据</view>
+            <view class='index_content_list_z' wx:for="{{indexlist}}" wx:for-item="i" wx:key="index" bindtap='goto_shop_home' data-id="{{i.store_id}}">
+                <view class='index_content_list_z_box'>
+                    <view class='index_listimgbox'><image mode='widthFix' src='{{i.img}}'></image></view> 
+                    <view class='index_content_list_z_name'>{{i.store_name}}</view>
+                    <view class='index_cpmtent_list_z_distance'>距离{{i.distance}}m</view>
+                    <view class='index_content_list_icon-star'>
+                        <text class="icon iconfont icon-star {{i.comment==1?'index_content_starw':''}} {{i.comment>1?'active':''}}"></text>
+                        <text class="icon iconfont icon-star {{i.comment==3?'index_content_starw':''}} {{i.comment>3?'active':''}}"></text>
+                        <text class="icon iconfont icon-star {{i.comment==5?'index_content_starw':''}} {{i.comment>5?'active':''}}"></text>
+                        <text class="icon iconfont icon-star {{i.comment==7?'index_content_starw':''}} {{i.comment>7?'active':''}}"></text>
+                        <text class="icon iconfont icon-star {{i.comment==9?'index_content_starw':''}} {{i.comment>9?'active':''}}"></text>
+                    </view>
+                </view>
+
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,29 @@
+/* pages/Setup/Setup.wxss */
+.setup_box{
+    padding-top: 26rpx;
+}
+.setup_list{
+    margin-bottom: 26rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    background: #fff;
+    display: flex;
+    justify-content:space-between;
+    /* align-items: center; */
+    padding-right: 32rpx;
+}
+.setup_list_tel{
+    padding-left: 59rpx;
+    font-size: 30rpx;
+    color: #4e4e4e;
+}
+.setup_list_telinputall{
+     padding-left: 250rpx; 
+}
+
+.setup_list_telinputall image{
+    display: inline-block;
+    vertical-align: middle;
+    width: 22rpx;
+	height: 40rpx;
+}

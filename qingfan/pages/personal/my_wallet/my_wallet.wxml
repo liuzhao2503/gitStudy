@@ -1,0 +1,22 @@
+<!--pages/my_wallet/my_wallet.wxml-->
+<!-- 顶部余额 bagin -->
+<view class='my_wallet_top'>
+  <text class='iconfont icon-sale_num my_wallet_sale_icon'></text>
+  <view class='my_wallet_top_msg'>
+      <text class='my_wallet_top_price'>￥{{my_wallet_money}}</text>
+      <text class='my_wallet_top_text'>账户余额</text>
+  </view>
+  <button class='my_wallet_paybtn' bindtap='goto_paybtn'>去充值</button>
+</view>
+<!-- 顶部余额 over -->
+<view class='my_wallet_record_table'>消费记录</view>
+<!-- 消费记录列表 bagin -->
+<view class='my_wallet_pay_record'>
+    <view class='my_wallet_pay_record_wu'>{{moneylist.length==0?"暂无记录":""}}</view>
+  <view class='my_wallet_record_list' wx:for="{{moneylist}}" wx:key="index">
+    <text class='my_wallet_record_list_label'>{{item.type_name}}</text>
+    <view class='my_wallet_record_list_text'>{{item.date}}</view>
+    <text class='my_wallet_record_list_entry'>{{item.money}}</text>
+  </view>
+</view>
+<!-- 消费记录列表 over -->

@@ -1,0 +1,22 @@
+<view class="coupon_view">
+<view class='coupon_view_wu'>{{coupon_list.length==0?"没有优惠券":""}}</view>
+	<block wx:for="{{coupon_list}}" wx:for-index="index" wx:for-item="coupon_list">
+		<view class="unit" style="background:{{coupon_list.type==2?'#fed403':'#f2cc66'}}" data-id="{{coupon_list.coupon_id}}" bindtap="jump">
+			<view class="the_left">
+				<image src="{{coupon_list.type==2?'../../img/coupon_red.png':'../../img/coupon_brown.png'}}" class="coupon_img" />
+				<view class="price">
+					<text class="price_ico">￥</text>
+					<text class="price_num">{{coupon_list.coupon_start}}</text>
+					<text class="price_condition">满{{coupon_list.coupon_price}}元可用</text>
+				</view>
+			</view>
+			<view class="text">
+				<text class="name">
+					<text class="name_type">优惠券</text>【{{coupon_list.type==1&&coupon_list.use_type ==1?"平台服务优惠券":""}}{{coupon_list.type==1&&coupon_list.use_type ==2?"平台商品优惠券":""}}{{coupon_list.type==2&&coupon_list.use_type ==1?"店铺服务优惠券":""}}{{coupon_list.type==2&&coupon_list.use_type ==2?"店铺商品优惠券":""}}】
+				</text>
+				<text class="shop">{{coupon_list.type==1?"氢范儿美发平台":coupon_list.store_name}}</text>
+				<text class="time_limit">有效期：{{coupon_list.start_time}}——{{coupon_list.end_time}}</text>
+			</view>
+		</view>
+	</block>
+</view>

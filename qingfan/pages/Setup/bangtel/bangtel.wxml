@@ -1,0 +1,16 @@
+<!--pages/Setup/bangtel/bangtel.wxml-->
+<view class='bangtel_box'>
+    <view class='bangtel_inputlist'>
+        <view class='bangtel_inputtel'>手机号</view>
+        <input type='number' bindinput='teldata' placeholder='请输入手机号' maxlength='11'></input>
+        <!-- <button class='bangtel_yzbtn'>获取验证码</button> -->
+    </view>
+    <view class='bangtel_inputlist'>
+        <view class='bangtel_inputtel'>验证码</view>
+        <input type='text' bindinput='yzdata' placeholder='请输入验证码'></input>
+        <button class='bangtel_yzbtn' disabled='{{yzbtnstutes}}' bindtap='yzbtn'>{{yzbtntext}}</button>
+    </view>
+    <view class='bangtel_bottom'>
+        <button bindtap='bangtelbtn'>绑定</button>
+    </view>
+</view>

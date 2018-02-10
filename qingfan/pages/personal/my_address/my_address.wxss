@@ -1,0 +1,100 @@
+/* pages/my_address/my_address.wxss */
+page{
+  width: 100%;
+  background-color: #f7f7f7;
+  padding-bottom: 50rpx;
+}
+view,text{
+  box-sizing: border-box;
+}
+.my_address{
+  width: 100%;
+  padding-top: 10rpx;
+}
+.my_address_list{
+  width: 100%;
+  margin-top: 10rpx;
+}
+.my_address_list_contain{
+  width: 100%;
+  padding: 0 40rpx;
+  background-color: #fff;
+}
+.my_address_list_title{
+  height: 69rpx;
+  line-height: 69rpx;
+  font-size: 26rpx;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: dashed 1px #c1c1c1;
+  padding: 0 10rpx;
+  color: #595959;
+}
+.my_address_list_title text{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.my_address_list_name{
+  flex: 3;
+}
+.my_address_list_phone{
+  flex: 2;
+  text-align: right;
+}
+.my_address_list_text{
+  display: inline-block;
+  width: 100%;
+  font-size: 26rpx;
+  color: #595959;
+  padding: 38rpx 20rpx 37rpx;
+  line-height: 2em;
+}
+.my_address_list_option{
+  width: 100%;
+  border-top: solid 2rpx #f7f7f7;
+  background-color: #fff;
+  height: 83rpx;
+  padding:0 67rpx 0 60rpx;
+}
+.set_default_address_icon{
+  vertical-align: middle;
+  margin-right: 16rpx;
+}
+.my_address_defalut_text{
+  display: inline-block;
+  line-height: 83rpx;
+  font-size: 26rpx;
+  vertical-align: middle;
+}
+.my_address_defalut_no{
+  color: #575757;
+}
+.my_address_defalut_text_active{
+  color: #b90707;
+}
+.my_address_choose_add{
+  display: inline-block;
+}
+.my_address_button{
+  display: inline-block;
+  font-size: 26rpx;
+  color: #595959;
+  float: right;
+  border: none;
+  background-color: transparent;
+  line-height:83rpx;
+}
+.button_big_submit{
+  width:690rpx;
+  height: 95rpx;
+  background-color: #ff740e;
+  color: #fff;
+  border-radius: 27rpx;
+  font-size: 36rpx;
+  line-height:95rpx;
+}
+.my_address_submit_btn{
+  margin-top: 73rpx;
+  margin-bottom: 50rpx;
+}

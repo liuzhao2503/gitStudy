@@ -1,0 +1,7 @@
+/* pages/ts/ts.wxss */
+.ts_box{
+    text-align: center;
+    padding-top: 150rpx;
+    font-size: 34rpx; 
+    color: #666;
+}

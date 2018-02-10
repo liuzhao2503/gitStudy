@@ -1,0 +1,130 @@
+/* pages/my_wallet/my_wallet.wxss */
+page{
+  height: 100%;
+  width: 100%;
+  background-color: #f7f7f7;
+  position: relative;
+  float: left;
+}
+.my_wallet_pay_record_wu{
+    text-align: center;
+    color: #999;
+    font-size: 25rpx;
+}
+view,text{
+  box-sizing: border-box;
+}
+.my_wallet_top{
+  width: 100%;
+  background-color: #fff;
+  height: 235rpx;
+  padding:46rpx 54rpx 60rpx 47rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.my_wallet_sale_icon{
+  display: inline-block;
+  width:130rpx;
+  height: 130rpx;
+  font-size: 70rpx;
+  line-height: 124rpx;
+  border-radius:62rpx;
+  background-color: #ee2e64;
+  overflow: hidden;
+  color: #ffffff;
+  text-align: center;
+  position: absolute;
+  left:47rpx;
+  top:46rpx;
+}
+.my_wallet_top_msg{
+  width: 100%;
+  overflow: hidden;
+}
+.my_wallet_top_price{
+  width: 100%;
+  padding-left: 170rpx;
+  font-size: 72rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  line-height: 1em;
+  float: left;
+}
+.my_wallet_top_text{
+  width: 100%;
+  display: inline-block;
+  padding-left: 190rpx;
+  font-size: 24rpx;
+  color: #a7a7a7;
+  float: left;
+  margin-top:20rpx;
+}
+.my_wallet_paybtn{
+  width:107rpx;
+  height: 46rpx;
+  background-color: #f6db52;
+  border-radius:23rpx;
+  color: #fff;
+  font-size: 24rpx;
+  line-height:46rpx;
+  padding:0;
+  position: absolute;
+  right:54rpx;
+  bottom:60rpx;
+  border: none;
+}
+.my_wallet_pay_record{
+  width: 100%;
+  margin-top:300rpx;
+}
+.my_wallet_record_table{
+  width: 100%;
+  padding-left:59rpx;
+  font-size: 26rpx;
+  color: #b7b7b7;
+  line-height: 65rpx;
+  position: fixed;
+  top:235rpx;
+  left: 0;
+  z-index: 1;
+  background-color: #f7f7f7;
+}
+.my_wallet_record_list{
+  width: 100%;
+  height: 100rpx;
+  line-height:100rpx;
+  padding:0 60rpx;
+  position: relative;
+  margin-bottom: 1rpx;
+  background-color: #fff;
+}
+.my_wallet_record_list_label{
+  position: absolute;
+  left:60rpx;
+  height:100rpx;
+  line-height: 100rpx;
+  top:0;
+  font-size: 29rpx;
+  color: #595959;
+  display: inline-block;
+}
+.my_wallet_record_list_text{
+  width: 100%;
+  padding-left:195rpx;
+  font-size: 24rpx;
+  color: #b7b7b7;
+  overflow: hidden;
+}
+.my_wallet_record_list_entry{
+  position: absolute;
+  right:60rpx;
+  font-size: 34rpx;
+  color:#f6db52;
+  height:100rpx;
+  line-height: 100rpx;
+  top: 0;
+}

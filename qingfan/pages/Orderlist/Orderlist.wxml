@@ -1,0 +1,571 @@
+<view class="orderlist_box" wx:if="{{index==1}}">
+    <view class='orderlist_top'>
+        <view class='orderlist_top_statusall'>
+            <picker class='orderlist_top_status' bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                <view class="picker">
+                    {{array[index]}} 
+                    <image class='orderlist_top_sj' src='../../img/sanjiao.png'></image>
+                </view>
+            </picker>
+        </view>
+        <scroll-view class='orderlist_topscroll-view' scroll-x="true">
+            <view class='orderlist_top_nav {{activea==0?"active":""}}' bindtap='topnavactive' data-navindex="0">全部</view>
+            <view class='orderlist_top_nav {{activea==1?"active":""}}' bindtap='topnavactive' data-navindex="1">待支付</view>
+            <view class='orderlist_top_nav {{activea==2?"active":""}}' bindtap='topnavactive' data-navindex="2">待消费</view>
+            <view class='orderlist_top_nav {{activea==3?"active":""}}' bindtap='topnavactive' data-navindex="3">待评价</view>
+            <view class='orderlist_top_nav {{activea==4?"active":""}}' bindtap='topnavactive' data-navindex="4">已取消</view>
+        </scroll-view>
+    </view>
+    <view class='orderlist_listall'>
+        <swiper current="{{activea}}" class="swiper-boxb" duration="300" style='height:100%' bindchange="bindChange">
+            <!-- 订单列表1 -->
+            <swiper-item>
+                <scroll-view class='swiper-itemcontent' scroll-y="true" style='height:100%' lower-threshold="0"  bindscrolltolower="{{isfreshing?'swiperbottomscroll':''}}">
+                    <view class='data_wu' wx:if="{{all_list.length==0}}">暂无数据</view>
+                    <block wx:for="{{all_list}}" wx:for-index="listindex" wx:for-item="all_list" wx:key="listindex">
+                        <view class="Ord_item">
+                            <view class="item_top">
+                                <text class="top_num">订单编号：{{all_list.top_num}}</text>
+                                <text class="top_status">{{the_type[all_list.top_status]}}</text>
+                            </view>
+                            <view class="item_middle">
+                                <view class="item_middle_line">
+                                    <text class="item_title">服务项目</text>
+                                    <text class="item1_name">{{all_list.item1_name}}</text>
+                                </view>
+                                <view class="item_middle_line">
+                                    <text class="item_title">预约时间</text>
+                                    <text class="item2_date">{{all_list.item2_date}}</text>
+                                </view>
+                                <view class="item_middle_line" wx:if="{{all_list.top_status==3||all_list.top_status==4}}">
+                                    <text class="item_title">完成时间</text>
+                                    <text class="item2_date">{{all_list.item2_enddate}}</text>
+                                </view>
+                                <!-- <view class="item_middle_line" wx:if="{{all_list.top_status==0}}">
+                                    <text class="item_title">取消时间</text>
+                                    <text class="item2_date">{{all_list.item2_canceldate}}</text>
+                                </view> -->
+                                <view class="item_middle_line">
+                                    <text class="item_title">{{"项目价格"}}</text>
+                                    <text class="item3_num">￥{{all_list.item3_pcice}}</text>
+                                </view>
+                                <view class="icon iconfont icon-erweima item_middle_QR" style="display:{{all_list.top_status==2?'block':'none'}}" bindtap='to_QR' data-id="{{all_list.subscribe_id}}"></view>
+                                <view class="item_middle_pay" wx:if="{{all_list.pocket!==''&&all_list.pocket!=null}}">
+                                    <text class="pay_text pay_gray">共计￥{{all_list.all}}</text>
+                                    <text class="pay_text pay_gray">优惠￥{{all_list.favorable}}</text>
+                                    <text class="pay_text pay_black">实付</text>
+                                    <text class="pay_text pay_red">￥{{all_list.pocket}}</text>
+                                </view>
+                            </view>
+                            <view class="item_bottom">
+                                <view class="item_bottom_1">
+                                    <text class="bottom_1_thename">{{all_list.thename}}</text>
+                                    <text class="bottom_1_hairdresser">发型师</text>
+                                    <text class="bottom_1_hairdresser_name">{{all_list.hairdresser_name}}</text>
+                                </view> 
+                                <view class="item_bottom_2" style="display:{{all_list.top_status==0||all_list.top_status==4?'none':'block'}}">
+                                    <button class="bottom_2_cancel" data-index="{{listindex}}" data-topstatus="{{all_list.top_status}}" bindtap='Cancellation' wx:if="{{all_list.top_status!=3}}">取消订单</button>
+                                    <button class="bottom_2_alter" bindtap='bottombtntwe' data-status="{{all_list.top_status}}" data-subscribeid="{{all_list.subscribe_id}}" data-index="{{listindex}}">{{the_bottom_2[all_list.top_status]}}</button>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                </scroll-view>
+            </swiper-item>
+            <!-- 订单列表2 -->
+            <swiper-item>
+                <scroll-view class='swiper-itemcontent' scroll-y="true" style='height:100%' lower-threshold="0"  bindscrolltolower="{{isfreshing?'swiperbottomscroll':''}}">
+                <view class='data_wu' wx:if="{{wait_pay_list.length==0}}">暂无数据</view>
+                    <block wx:for="{{wait_pay_list}}" wx:for-index="listindex" wx:for-item="wait_pay_list" wx:key="listindex">
+                        <view class="Ord_item">
+                            <view class="item_top">
+                                <text class="top_num">订单编号：{{wait_pay_list.top_num}}</text>
+                                <text class="top_status">{{the_type[wait_pay_list.top_status]}}</text>
+                            </view>
+                            <view class="item_middle">
+                                <view class="item_middle_line">
+                                    <text class="item_title">服务项目</text>
+                                    <text class="item1_name">{{wait_pay_list.item1_name}}</text>
+                                </view>
+                                <view class="item_middle_line">
+                                    <text class="item_title">预约时间</text>
+                                    <text class="item2_date">{{wait_pay_list.item2_date}}</text>
+                                </view>
+                                <view class="item_middle_line" wx:if="{{wait_pay_list.top_status==3||wait_pay_list.top_status==4}}">
+                                    <text class="item_title">完成时间</text>
+                                    <text class="item2_date">{{wait_pay_list.item2_enddate}}</text>
+                                </view>
+                                <!-- <view class="item_middle_line" wx:if="{{wait_pay_list.top_status==0}}">
+                                    <text class="item_title">取消时间</text>
+                                    <text class="item2_date">{{wait_pay_list.item2_canceldate}}</text>
+                                </view> -->
+                                <view class="item_middle_line">
+                                    <text class="item_title">{{"项目价格"}}</text>
+                                    <text class="item3_num">￥{{wait_pay_list.item3_pcice}}</text>
+                                </view>
+                                <view class="icon iconfont icon-erweima item_middle_QR" style="display:{{wait_pay_list.top_status==2?'block':'none'}}" bindtap='to_QR' data-id="{{wait_pay_list.subscribe_id}}"></view>
+                            </view>
+                            <view class="item_bottom">
+                                <view class="item_bottom_1">
+                                    <text class="bottom_1_thename">{{wait_pay_list.thename}}</text>
+                                    <text class="bottom_1_hairdresser">发型师</text>
+                                    <text class="bottom_1_hairdresser_name">{{wait_pay_list.hairdresser_name}}</text>
+                                </view>
+                                <view class="item_bottom_2" style="display:{{wait_pay_list.top_status==0||wait_pay_list.top_status==4?'none':'block'}}">
+                                    <button class="bottom_2_cancel" data-index="{{listindex}}" bindtap='Cancellation' data-topstatus="{{wait_pay_list.top_status}}" wx:if="{{wait_pay_list.top_status!=3}}">取消订单</button>
+                                    <button class="bottom_2_alter" bindtap='bottombtntwe' data-status="{{wait_pay_list.top_status}}" data-subscribeid="{{wait_pay_list.subscribe_id}}" data-index="{{listindex}}">{{the_bottom_2[wait_pay_list.top_status]}}</button>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                </scroll-view>
+            </swiper-item>
+            <!-- 订单列表3 -->
+            <swiper-item>
+                <scroll-view class='swiper-itemcontent' scroll-y="true" style='height:100%' lower-threshold="0"  bindscrolltolower="{{isfreshing?'swiperbottomscroll':''}}">
+                <view class='data_wu' wx:if="{{wait_shouhuo_list.length==0}}">暂无数据</view>
+                    <block wx:for="{{wait_shouhuo_list}}" wx:for-index="listindex" wx:key="listindex" wx:for-item="wait_shouhuo_list">
+                        <view class="Ord_item">
+                            <view class="item_top">
+                                <text class="top_num">订单编号：{{wait_shouhuo_list.top_num}}</text>
+                                <text class="top_status">{{the_type[wait_shouhuo_list.top_status]}}</text>
+                            </view>
+                            <view class="item_middle">
+                                <view class="item_middle_line">
+                                    <text class="item_title">服务项目</text>
+                                    <text class="item1_name">{{wait_shouhuo_list.item1_name}}</text>
+                                </view>
+                                <view class="item_middle_line">
+                                    <text class="item_title">预约时间</text>
+                                    <text class="item2_date">{{wait_shouhuo_list.item2_date}}</text>
+                                </view>
+                                <view class="item_middle_line" wx:if="{{wait_shouhuo_list.top_status==3||wait_shouhuo_list.top_status==4}}">
+                                    <text class="item_title">完成时间</text>
+                                    <text class="item2_date">{{wait_shouhuo_list.item2_enddate}}</text>
+                                </view>
+                                <!-- <view class="item_middle_line" wx:if="{{wait_shouhuo_list.top_status==0}}">
+                                    <text class="item_title">取消时间</text>
+                                    <text class="item2_date">{{wait_shouhuo_list.item2_canceldate}}</text>
+                                </view> -->
+                                <view class="item_middle_line">
+                                    <text class="item_title">{{"项目价格"}}</text>
+                                    <text class="item3_num">￥{{wait_shouhuo_list.item3_pcice}}</text>
+                                </view>
+                                <view class="icon iconfont icon-erweima item_middle_QR" style="display:{{wait_shouhuo_list.top_status==2?'block':'none'}}" bindtap='to_QR' data-id="{{wait_shouhuo_list.subscribe_id}}"></view>
+                                <view class="item_middle_pay"wx:if="{{wait_shouhuo_list.pocket!==''&&wait_shouhuo_list.pocket!=null}}">
+                                    <text class="pay_text pay_gray">共计￥{{wait_shouhuo_list.all}}</text>
+                                    <text class="pay_text pay_gray">优惠￥{{wait_shouhuo_list.favorable}}</text>
+                                    <text class="pay_text pay_black">实付</text>
+                                    <text class="pay_text pay_red">￥{{wait_shouhuo_list.pocket}}</text>
+                                </view>
+                            </view>
+                            <view class="item_bottom">
+                                <view class="item_bottom_1">
+                                    <text class="bottom_1_thename">{{wait_shouhuo_list.thename}}</text>
+                                    <text class="bottom_1_hairdresser">发型师</text>
+                                    <text class="bottom_1_hairdresser_name">{{wait_shouhuo_list.hairdresser_name}}</text>
+                                </view>
+                                <view class="item_bottom_2" style="display:{{wait_shouhuo_list.top_status==0||wait_shouhuo_list.top_status==4?'none':'block'}}">
+                                    <button class="bottom_2_cancel" data-index="{{listindex}}" bindtap='Cancellation' data-subscribeid="{{wait_shouhuo_list.subscribe_id}}" data-topstatus="{{all_list.top_status}}" wx:if="{{wait_shouhuo_list.top_status!=3}}">取消订单</button>
+                                    <button class="bottom_2_alter" bindtap='bottombtntwe'  data-status="{{wait_shouhuo_list.top_status}}" data-subscribeid="{{wait_shouhuo_list.subscribe_id}}" data-index="{{listindex}}">{{the_bottom_2[wait_shouhuo_list.top_status]}}</button>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                </scroll-view>
+            </swiper-item>
+            <!-- 订单列表4 -->
+            <swiper-item>
+                <scroll-view class='swiper-itemcontent' scroll-y="true" style='height:100%' lower-threshold="0"  bindscrolltolower="{{isfreshing?'swiperbottomscroll':''}}">
+                <view class='data_wu' wx:if="{{wait_evaluate_list.length==0}}">暂无数据</view>
+                    <block wx:for="{{wait_evaluate_list}}" wx:for-index="listindex" wx:for-item="wait_evaluate_list" wx:key="listindex">
+                        <view class="Ord_item">
+                            <view class="item_top">
+                                <text class="top_num">订单编号：{{wait_evaluate_list.top_num}}</text>
+                                <text class="top_status">{{the_type[wait_evaluate_list.top_status]}}</text>
+                            </view>
+                            <view class="item_middle">
+                                <view class="item_middle_line">
+                                    <text class="item_title">服务项目</text>
+                                    <text class="item1_name">{{wait_evaluate_list.item1_name}}</text>
+                                </view>
+                                <view class="item_middle_line">
+                                    <text class="item_title">预约时间</text>
+                                    <text class="item2_date">{{wait_evaluate_list.item2_date}}</text>
+                                </view>
+                                <view class="item_middle_line" wx:if="{{wait_evaluate_list.top_status==3||wait_evaluate_list.top_status==4}}">
+                                    <text class="item_title">完成时间</text>
+                                    <text class="item2_date">{{wait_evaluate_list.item2_enddate}}</text>
+                                </view>
+                                <!-- <view class="item_middle_line" wx:if="{{wait_evaluate_list.top_status==0}}">
+                                    <text class="item_title">取消时间</text>
+                                    <text class="item2_date">{{wait_evaluate_list.item2_canceldate}}</text>
+                                </view> -->
+                                <view class="item_middle_line">
+                                    <text class="item_title">{{"项目价格"}}</text>
+                                    <text class="item3_num">￥{{wait_evaluate_list.item3_pcice}}</text>
+                                </view>
+                                <view class="icon iconfont icon-erweima item_middle_QR" style="display:{{wait_evaluate_list.top_status==2?'block':'none'}}" bindtap='to_QR' data-id="{{wait_evaluate_list.subscribe_id}}"></view>
+                                <view class="item_middle_pay"wx:if="{{wait_evaluate_list.pocket!==''&&wait_evaluate_list.pocket!=null}}">
+                                    <text class="pay_text pay_gray">共计￥{{wait_evaluate_list.all}}</text>
+                                    <text class="pay_text pay_gray">优惠￥{{wait_evaluate_list.favorable}}</text>
+                                    <text class="pay_text pay_black">实付</text>
+                                    <text class="pay_text pay_red">￥{{wait_evaluate_list.pocket}}</text>
+                                </view>
+                            </view>
+                            <view class="item_bottom">
+                                <view class="item_bottom_1">
+                                    <text class="bottom_1_thename">{{wait_evaluate_list.thename}}</text>
+                                    <text class="bottom_1_hairdresser">发型师</text>
+                                    <text class="bottom_1_hairdresser_name">{{wait_evaluate_list.hairdresser_name}}</text>
+                                </view>
+                                <view class="item_bottom_2" style="display:{{wait_evaluate_list.top_status==0||wait_evaluate_list.top_status==4?'none':'block'}}">
+                                    <button class="bottom_2_cancel" data-index="{{listindex}}" bindtap='Cancellation' data-topstatus="{{all_list.top_status}}" wx:if="{{wait_evaluate_list.top_status!=3}}">取消订单</button>
+                                    <button class="bottom_2_alter" bindtap='bottombtntwe' data-status="{{wait_evaluate_list.top_status}}" data-subscribeid="{{wait_evaluate_list.subscribe_id}}" data-index="{{listindex}}">{{the_bottom_2[wait_evaluate_list.top_status]}}</button>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                </scroll-view>
+            </swiper-item>
+            <!-- 订单列表5 -->
+            <swiper-item>
+                <scroll-view class='swiper-itemcontent' scroll-y="true" style='height:100%' lower-threshold="0"  bindscrolltolower="{{isfreshing?'swiperbottomscroll':''}}">
+                <view class='data_wu' wx:if="{{wait_cancel_list.length==0}}">暂无数据</view>
+                    <block wx:for="{{wait_cancel_list}}" wx:for-index="listindex" wx:for-item="wait_cancel_list" wx:key="listindex">
+                       <view class="Ord_item">
+                            <view class="item_top">
+                                <text class="top_num">订单编号：{{wait_cancel_list.top_num}}</text>
+                                <text class="top_status">{{the_type[wait_cancel_list.top_status]}}</text>
+                            </view>
+                            <view class="item_middle">
+                                <view class="item_middle_line">
+                                    <text class="item_title">服务项目</text>
+                                    <text class="item1_name">{{wait_cancel_list.item1_name}}</text>
+                                </view>
+                                <view class="item_middle_line">
+                                    <text class="item_title">预约时间</text>
+                                    <text class="item2_date">{{wait_cancel_list.item2_date}}</text>
+                                </view>
+                                <view class="item_middle_line" wx:if="{{wait_cancel_list.top_status==3||wait_cancel_list.top_status==4}}">
+                                    <text class="item_title">完成时间</text>
+                                    <text class="item2_date">{{wait_cancel_list.item2_enddate}}</text>
+                                </view>
+                                <!-- <view class="item_middle_line" wx:if="{{wait_cancel_list.top_status==0}}">
+                                    <text class="item_title">取消时间</text>
+                                    <text class="item2_date">{{wait_cancel_list.item2_canceldate}}</text>
+                                </view> -->
+                                <view class="item_middle_line">
+                                    <text class="item_title">{{"项目价格"}}</text>
+                                    <text class="item3_num">￥{{wait_cancel_list.item3_pcice}}</text>
+                                </view>
+                                <view class="icon iconfont icon-erweima item_middle_QR" style="display:{{wait_cancel_list.top_status==2?'block':'none'}}" bindtap='to_QR' data-id="{{wait_cancel_list.subscribe_id}}"></view>
+                                <view class="item_middle_pay"wx:if="{{wait_cancel_list.pocket!==''&&wait_cancel_list.pocket!=null}}">
+                                    <text class="pay_text pay_gray">共计￥{{wait_cancel_list.all}}</text>
+                                    <text class="pay_text pay_gray">优惠￥{{wait_cancel_list.favorable}}</text>
+                                    <text class="pay_text pay_black">实付</text>
+                                    <text class="pay_text pay_red">￥{{wait_cancel_list.pocket}}</text>
+                                </view>
+                            </view>
+                            <view class="item_bottom">
+                                <view class="item_bottom_1">
+                                    <text class="bottom_1_thename">{{wait_cancel_list.thename}}</text>
+                                    <text class="bottom_1_hairdresser">发型师</text>
+                                    <text class="bottom_1_hairdresser_name">{{wait_cancel_list.hairdresser_name}}</text>
+                                </view>
+                                <view class="item_bottom_2" style="display:{{wait_cancel_list.top_status==0||wait_cancel_list.top_status==4?'none':'block'}}">
+                                    <button class="bottom_2_cancel" data-index="{{listindex}}" bindtap='Cancellation' data-topstatus="{{all_list.top_status}}" wx:if="{{wait_cancel_list.top_status!=3}}">取消订单</button>
+                                    <button class="bottom_2_alter" bindtap='bottombtntwe' data-status="{{wait_cancel_list.top_status}}" data-subscribeid="{{wait_cancel_list.subscribe_id}}" data-index="{{listindex}}">{{the_bottom_2[wait_cancel_list.top_status]}}</button>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                </scroll-view>
+            </swiper-item>
+        </swiper>
+    </view>
+</view>
+
+
+
+<action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetbindchange">
+    <block wx:for-items="{{actionSheetItems}}" wx:key="index">
+        <action-sheet-item bindtap="bindCancelling" data-txt="{{index}}">{{item.txt}}</action-sheet-item>
+    </block>
+    <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+</action-sheet>
+<view class="timemask" wx:if="{{timemask}}">
+    <view class='timemask_box'>
+        <view class='timemask_title'>请选择预约时间</view>
+        <view class='picker_box'>
+            <picker mode="multiSelector" class='settled_content_input_time' bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{value}}" range="{{timeArray}}">
+                <view class="picker">
+                    <view> {{pageday==""?"请选择时间":pageday+" "+pagehour+""+pageminute}}
+                    <image src='../../img/xl.png'></image></view>
+                </view>
+            </picker>
+            <!-- <picker class='settled_content_input_time' mode="date" value="{{dates}}" start="{{starttimea}}"  bindchange="bindDateChange">
+                <view class="picker">
+                    <view>{{dates?dates:"年/月/日"}}
+                        <image src='../../img/xl.png'></image>
+                    </view>
+                </view>
+            </picker>
+            <picker class='settled_content_input_time' mode="time" value="{{times}}" start="{{starttimeb}}" bindchange="bindTimeChange">
+                <view class="picker">
+                    <view>{{times?times:"时/分"}}
+                        <image src='../../img/xl.png'></image>
+                    </view>
+                </view>
+            </picker> -->
+        </view>
+        <view class='timemask_btn_all'><button class='timemask_btn' bindtap='timemask_qxbtn'>取消</button><button class='timemask_btn' bindtap='timemask_qdbtn'>确定</button></view>
+    </view>
+</view>
+<view class="orderlist_box" wx:if="{{index==0}}">
+    <view class='orderlist_top'>
+        <view class='orderlist_top_statusall'>
+            <picker class='orderlist_top_status' bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                <view class="picker">
+                    {{array[index]}}
+                    <image class='orderlist_top_sj' src='../../img/sanjiao.png'></image>
+                </view>
+            </picker>
+        </view>
+
+
+
+        <scroll-view class='orderlist_topscroll-view' scroll-x="true"> 
+            <view class='orderlist_top_nav {{activeb==0?"active":""}}' bindtap='topnavactiveb' data-navindex="0">全部</view>
+            <view class='orderlist_top_nav {{activeb==1?"active":""}}' bindtap='topnavactiveb' data-navindex="1">待付款</view>
+            <view class='orderlist_top_nav {{activeb==2?"active":""}}' bindtap='topnavactiveb' data-navindex="2">待发货</view>
+            <view class='orderlist_top_nav {{activeb==3?"active":""}}' bindtap='topnavactiveb' data-navindex="3">待收货</view>
+            <view class='orderlist_top_nav {{activeb==4?"active":""}}' bindtap='topnavactiveb' data-navindex="4">待评论</view>
+            <view class='orderlist_top_nav {{activeb==5?"active":""}}' bindtap='topnavactiveb' data-navindex="5">退款/退货</view>
+        </scroll-view>
+    </view>
+
+
+        <!-- 商品订单列表 -->
+    <view class='orderlist_listall'>
+        <swiper current="{{activeb}}" class="swiper-boxa" duration="300" style='height:100%' bindchange="bindChangeb">
+            <!-- 商品订单列表1 -->
+            <swiper-item>
+                <scroll-view class='swiper-itemcontent' scroll-y="true" style='height:100%' lower-threshold="0"  bindscrolltolower="{{isfreshing?'swiperbottomscroll':''}}">
+                <view class='data_wu' wx:if="{{orderlist.length==0}}">暂无数据</view>
+                    <view class='itemcontent_list' wx:for="{{orderlist}}" wx:for-index="in" wx:key="in">
+                        <view class='itemcontent_listbox'  >
+                            <view class='itemcontent_list_top'>
+                                <view class='itemcontent_list_top_left'>订单编号 {{item.ordernumber}}</view>
+                                <view class='itemcontent_list_top_right'>
+                                    {{item.orderstate==1?"等待买家付款":""}}{{item.orderstate==2?"等待卖家发货":""}} {{item.orderstate==3?"到店自提":""}}{{item.orderstate==4?"卖家已发货":""}}{{item.orderstate==5?"待评论":""}} {{item.orderstate==6?"交易完成":""}}{{item.orderstate==7?"申请退货中":""}} {{item.orderstate==8?"商家已同意":""}}{{item.orderstate==9?"商家已同意":""}} {{item.orderstate==10?"退货中":""}} {{item.orderstate==11?"拒绝退货":""}} {{item.orderstate==12?"交易关闭 ":""}} {{item.orderstate==13?"交易关闭":""}}{{item.orderstate==14?"交易关闭":""}}{{item.orderstate==15?"申请退货中":""}}
+                                </view>
+                            </view>
+                            <view class='itemcontent_list_data' bindtap='goto_xqpage' data-index="{{in}}" data-orderstate="{{item.orderstate}}" data-subscribeid="{{item.subscribe_id}}">
+                                <view>
+                                    <image mode='aspectFit' src="{{item.img}}"></image>
+                                </view>
+                                <view class='itemcontent_list_dataMiddle'>
+                                    <view class='itemcontent_list_data_name'>{{item.name}}</view>
+                                    <view class='itemcontent_list_data_Pricenum'>
+                                        <view class='itemcontent_list_data_Price'>￥{{item.Price}}</view>
+                                        <view class='itemcontent_list_data_num'>X {{item.num}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class='itemcontent_list_data_bottom' wx:if="{{item.orderstate!=13&&item.orderstate!=1}}">
+                                <text class='itemcontent_list_data_money'>共计￥{{item.totalPrice}}</text>
+                                <text class='itemcontent_list_data_money'>优惠￥{{item.discounts}}</text>
+                                <text class='itemcontent_list_data_money moneyhtb'>实付<text>￥{{item.Paid}}</text></text>
+                            </view>
+                            <view class='itemcontent_list_bottombtn'>
+                                <button class='' data-index="{{in}}" bindtap='hsqxbtn' data-subscribeid="{{item.subscribe_id}}" data-orderstate="{{item.orderstate}}" wx:if="{{item.orderstate==1||item.orderstate==2||item.orderstate==3||item.orderstate==5}}">{{item.orderstate==1||item.orderstate==2||item.orderstate==3?"取消订单":""}}{{item.orderstate==5?"退货":""}}</button>
+                                <button class='active' bindtap='worstbtn' data-index="{{in}}" data-orderstate="{{item.orderstate}}"  data-subscribeid="{{item.subscribe_id}}" wx:if="{{item.orderstate==1||item.orderstate==3||item.orderstate==4||item.orderstate==5||item.orderstate==8||item.orderstate==9||item.orderstate==11}}">{{item.orderstate==1?"去支付":""}}{{item.orderstate==3?"查看兑换码":""}}{{item.orderstate==4?"确认收货":""}}{{item.orderstate==5?"评论":""}}{{item.orderstate==8?"填写退货信息":""}}{{item.orderstate==9?"查看退货地址":""}}{{item.orderstate==11?"查看原因":""}}</button>
+                                <button class='disabled' disabled wx:if="{{item.orderstate==15||item.orderstate==7||item.orderstate==10||item.orderstate==12||item.orderstate==6||item.orderstate==13||item.orderstate==14}}">{{item.orderstate==7?"等待商家确认":""}}{{item.orderstate==15?"等待商家确认":""}}{{item.orderstate==10?"等待商家收货":""}}{{item.orderstate==12?"已退货":""}}{{item.orderstate==6?"已评价":""}}{{item.orderstate==13?"已取消":""}}{{item.orderstate==14?"已退款":""}}</button>
+                            </view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+            <!-- 商品订单列表2 -->
+            <swiper-item>
+                <scroll-view class='swiper-itemcontent' scroll-y="true" style='height:100%' lower-threshold="0"  bindscrolltolower="{{isfreshing?'swiperbottomscroll':''}}">
+                <view class='data_wu' wx:if="{{Pendingpayment.length==0}}">暂无数据</view>
+                    <view class='itemcontent_list' wx:for="{{Pendingpayment}}" wx:for-index="in" wx:key="in">
+                        <view class='itemcontent_listbox' >
+                            <view class='itemcontent_list_top'>
+                                <view class='itemcontent_list_top_left'>订单编号 {{item.ordernumber}}</view>
+                                <view class='itemcontent_list_top_right'>
+                                    {{item.orderstate==1?"等待买家付款":""}}
+                                </view>
+                            </view>
+                            <view class='itemcontent_list_data'>
+                                <view>
+                                    <image mode='aspectFit' src="{{item.img}}"></image>
+                                </view>
+                                <view class='itemcontent_list_dataMiddle'>
+                                    <view class='itemcontent_list_data_name'>{{item.name}}</view>
+                                    <view class='itemcontent_list_data_Pricenum'>
+                                        <view class='itemcontent_list_data_Price'>￥{{item.Price}}</view>
+                                        <view class='itemcontent_list_data_num'>X {{item.num}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class='itemcontent_list_bottombtn'>
+                                <button class='' bindtap='hsqxbtn' data-index="{{in}}" data-orderstate="{{item.orderstate}}" wx:if="{{item.orderstate==1}}" data-subscribeid="{{item.subscribe_id}}">{{item.orderstate==1?"取消订单":""}}</button>
+                                <button class='active' bindtap='worstbtn' data-index="{{in}}" data-orderstate="{{item.orderstate}}" data-subscribeid="{{item.subscribe_id}}" wx:if="{{item.orderstate==1}}">{{item.orderstate==1?"去支付":""}}</button>
+                            </view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+            <!-- 商品订单列表3 -->
+            <swiper-item>
+                <scroll-view class='swiper-itemcontent' scroll-y="true" style='height:100%' lower-threshold="0"  bindscrolltolower="{{isfreshing?'swiperbottomscroll':''}}">
+                 <view class='data_wu' wx:if="{{Pendingdelivery.length==0}}">暂无数据</view>
+                    <view class='itemcontent_list' wx:for="{{Pendingdelivery}}" wx:for-index="in" wx:key="in">
+                        <view class='itemcontent_listbox'>
+                            <view class='itemcontent_list_top'>
+                                <view class='itemcontent_list_top_left'>订单编号 {{item.ordernumber}}</view>
+                                <view class='itemcontent_list_top_right'>
+                                    {{item.orderstate==2?"等待卖家发货":""}}
+                                </view>
+                            </view>
+                            <view class='itemcontent_list_data' bindtap='goto_xqpage' data-index="{{in}}" data-orderstate="{{item.orderstate}}" data-subscribeid="{{item.subscribe_id}}">
+                                <view>
+                                    <image mode='aspectFit' src="{{item.img}}"></image>
+                                </view>
+                                <view class='itemcontent_list_dataMiddle'>
+                                    <view class='itemcontent_list_data_name'>{{item.name}}</view>
+                                    <view class='itemcontent_list_data_Pricenum'>
+                                        <view class='itemcontent_list_data_Price'>￥{{item.Price}}</view>
+                                        <view class='itemcontent_list_data_num'>X {{item.num}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class='itemcontent_list_data_bottom'>
+                                <text class='itemcontent_list_data_money'>共计￥{{item.totalPrice}}</text>
+                                <text class='itemcontent_list_data_money'>优惠￥{{item.discounts}}</text>
+                                <text class='itemcontent_list_data_money moneyhtb'>实付<text>￥{{item.Paid}}</text></text>
+                            </view>
+                            <view class='itemcontent_list_bottombtn'>
+                                <button class='' data-subscribeid="{{item.subscribe_id}}" bindtap='hsqxbtn' data-index="{{in}}" data-orderstate="{{item.orderstate}}" wx:if="{{item.orderstate==2}}">{{item.orderstate==2?"取消订单":""}}</button>
+                            </view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+            <!-- 商品订单列表4 -->
+            <swiper-item>
+                <scroll-view class='swiper-itemcontent' scroll-y="true" style='height:100%' lower-threshold="0"  bindscrolltolower="{{isfreshing?'swiperbottomscroll':''}}">
+                 <view class='data_wu' wx:if="{{Goodsreceipt.length==0}}">暂无数据</view>
+                    <view class='itemcontent_list' wx:for="{{Goodsreceipt}}" wx:for-index="in" wx:key="in">
+                        <view class='itemcontent_listbox' >
+                            <view class='itemcontent_list_top'>
+                                <view class='itemcontent_list_top_left'>订单编号 {{item.ordernumber}}</view>
+                                <view class='itemcontent_list_top_right'>
+                                    {{item.orderstate==3?"到店自提":""}} {{item.orderstate==4?"卖家已发货":""}}
+                                </view>
+                            </view>
+                            <view class='itemcontent_list_data' bindtap='goto_xqpage' data-index="{{in}}" data-orderstate="{{item.orderstate}}"   data-subscribeid="{{item.subscribe_id}}">
+                                <view>
+                                    <image mode='aspectFit' src="{{item.img}}"></image>
+                                </view>
+                                <view class='itemcontent_list_dataMiddle'>
+                                    <view class='itemcontent_list_data_name'>{{item.name}}</view>
+                                    <view class='itemcontent_list_data_Pricenum'>
+                                        <view class='itemcontent_list_data_Price'>￥{{item.Price}}</view>
+                                        <view class='itemcontent_list_data_num'>X {{item.num}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class='itemcontent_list_data_bottom'>
+                                <text class='itemcontent_list_data_money'>共计￥{{item.totalPrice}}</text>
+                                <text class='itemcontent_list_data_money'>优惠￥{{item.discounts}}</text>
+                                <text class='itemcontent_list_data_money moneyhtb'>实付<text>￥{{item.Paid}}</text></text>
+                            </view>
+                            <view class='itemcontent_list_bottombtn'>
+                                <button class='' bindtap='hsqxbtn' data-index="{{in}}" data-orderstate="{{item.orderstate}}" data-subscribeid="{{item.subscribe_id}}" wx:if="{{item.orderstate==3}}">{{item.orderstate==3?"取消订单":""}}</button>
+                                <button class='active' data-index="{{in}}"  data-subscribeid="{{item.subscribe_id}}" data-orderstate="{{item.orderstate}}" wx:if="{{item.orderstate==4||item.orderstate==3}}" bindtap='worstbtn'>{{item.orderstate==3?"查看兑换码":""}}{{item.orderstate==4?"确认收货":""}}</button>
+                            </view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+            <!-- 商品订单列表5 -->
+            <swiper-item>
+                <scroll-view class='swiper-itemcontent' scroll-y="true" style='height:100%' lower-threshold="0"  bindscrolltolower="{{isfreshing?'swiperbottomscroll':''}}">
+                <view class='data_wu' wx:if="{{comment.length==0}}">暂无数据</view>
+                    <view class='itemcontent_list' wx:for="{{comment}}" wx:for-index="in" wx:key="in">
+                        <view class='itemcontent_listbox'>
+                            <view class='itemcontent_list_top'>
+                                <view class='itemcontent_list_top_left'>订单编号 {{item.ordernumber}}</view>
+                                <view class='itemcontent_list_top_right'>
+                                    {{item.orderstate==5?"待评论":""}}
+                                </view>
+                            </view>
+                            <view class='itemcontent_list_data'>
+                                <view>
+                                    <image mode='aspectFit' src="{{item.img}}"></image>
+                                </view>
+                                <view class='itemcontent_list_dataMiddle'>
+                                    <view class='itemcontent_list_data_name'>{{item.name}}</view>
+                                    <view class='itemcontent_list_data_Pricenum'>
+                                        <view class='itemcontent_list_data_Price'>￥{{item.Price}}</view>
+                                        <view class='itemcontent_list_data_num'>X {{item.num}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class='itemcontent_list_data_bottom'>
+                                <text class='itemcontent_list_data_money'>共计￥{{item.totalPrice}}</text>
+                                <text class='itemcontent_list_data_money'>优惠￥{{item.discounts}}</text>
+                                <text class='itemcontent_list_data_money moneyhtb'>实付<text>￥{{item.Paid}}</text></text>
+                            </view>
+                            <view class='itemcontent_list_bottombtn'>
+                                <button class='' bindtap='hsqxbtn' data-index="{{in}}" data-orderstate="{{item.orderstate}}" data-subscribeid="{{item.subscribe_id}}"  wx:if="item.orderstate==5">{{item.orderstate==5?"退货":""}}</button>
+                                <button class='active'  data-subscribeid="{{item.subscribe_id}}" data-index="{{in}}" data-orderstate="{{item.orderstate}}" wx:if="{{item.orderstate==5}}" bindtap='worstbtn'>{{item.orderstate==5?"评论":""}}</button>
+                            </view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+            <!-- 商品订单列表6 -->
+            <swiper-item>
+                <scroll-view class='swiper-itemcontent' scroll-y="true" style='height:100%' lower-threshold="0"  bindscrolltolower="{{isfreshing?'swiperbottomscroll':''}}">
+                <view class='data_wu' wx:if="{{retreat.length==0}}">暂无数据</view>
+                    <view class='itemcontent_list' wx:for="{{retreat}}" wx:for-index="in" wx:key="in">
+                        <view class='itemcontent_listbox'>
+                            <view class='itemcontent_list_top'>
+                                <view class='itemcontent_list_top_left'>订单编号 {{item.ordernumber}}</view>
+                                <view class='itemcontent_list_top_right'>
+                                    {{item.orderstate==7?"申请退货中":""}}{{item.orderstate==8?"商家已同意":""}} {{item.orderstate==9?"商家已同意":""}} {{item.orderstate==10?"退货中":""}} {{item.orderstate==11?"拒绝退货":""}} {{item.orderstate==12?"交易关闭 ":""}}{{item.orderstate==13?"交易关闭 ":""}}{{item.orderstate==14?"交易关闭 ":""}} {{item.orderstate==15?"申请退货中":""}}
+                                </view>
+                            </view>
+                            <view class='itemcontent_list_data'>
+                                <view>
+                                    <image mode='aspectFit' src="{{item.img}}"></image>
+                                </view>
+                                <view class='itemcontent_list_dataMiddle'>
+                                    <view class='itemcontent_list_data_name'>{{item.name}}</view>
+                                    <view class='itemcontent_list_data_Pricenum'>
+                                        <view class='itemcontent_list_data_Price'>￥{{item.Price}}</view>
+                                        <view class='itemcontent_list_data_num'>X {{item.num}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class='itemcontent_list_data_bottom'>
+                                <text class='itemcontent_list_data_money'>共计￥{{item.totalPrice}}</text>
+                                <text class='itemcontent_list_data_money'>优惠￥{{item.discounts}}</text>
+                                <text class='itemcontent_list_data_money moneyhtb'>实付<text>￥{{item.Paid}}</text></text>
+                            </view>
+                            <view class='itemcontent_list_bottombtn'>
+                                <button class='active' data-index="{{in}}" bindtap='worstbtn' data-orderstate="{{item.orderstate}}"  data-subscribeid="{{item.subscribe_id}}" wx:if="{{item.orderstate==8||item.orderstate==9||item.orderstate==11}}">{{item.orderstate==8?"填写退货信息":""}}{{item.orderstate==9?"查看退货地址":""}}{{item.orderstate==11?"查看原因":""}}</button>
+                                <button class='disabled' disabled wx:if="{{item.orderstate==15||item.orderstate==7||item.orderstate==10||item.orderstate==12||item.orderstate==14}}">{{item.orderstate==7?"等待商家确认":""}}{{item.orderstate==10?"等待商家收货":""}}{{item.orderstate==12?"已退货":""}}{{item.orderstate==13?"已取消":""}}{{item.orderstate==14?"已退款":""}}{{item.orderstate==15?"等待商家确认":""}}</button>
+                            </view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+        </swiper>
+    </view>
+</view>

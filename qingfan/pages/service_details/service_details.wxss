@@ -1,0 +1,166 @@
+/* pages/service_details/service_details.wxss */
+Page{padding-bottom: 68rpx;}
+
+.banner{
+	width: 750rpx;
+	height: 322rpx;
+    overflow: hidden;
+}
+.hairdresser_list_wu{
+    text-align: center;
+    color: #999;
+    padding-top: 10rpx;
+    font-size: 25rpx;
+}
+.banner_photo{
+    width: 100%;
+    height: 100%;
+}
+.banner_swiper{
+	width: 750rpx;
+	height: 322rpx;
+}
+.Banner_Photo image{
+	width: 750rpx;
+	height: 322rpx;
+}
+.price{
+	width: 750rpx;
+	height: 108rpx;
+	background: #fff;
+}
+.the_name{
+	display: inline-block;
+	max-width: 72%;
+	font-size: 18px;
+	color: #595959;
+	margin-left: 43rpx;
+	line-height: 108rpx;
+	vertical-align: middle;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.the_pcice{
+	font-size: 40rpx;
+	color: #cd0c0c;
+	float: right;
+	margin-right: 54rpx;
+	line-height: 108rpx;
+	vertical-align: middle;
+}
+
+.show_view{
+	width: 710rpx;
+	margin: 38rpx auto 0;
+}
+.the_line{
+	border-top: 1px dotted #c1c1c1;
+	width: 710rpx;
+	height: 1px;
+	margin-bottom: 35rpx;
+	text-align: center;
+}
+.the_title{
+	display: inline-block;
+	position: relative;
+	top: -13px;
+	line-height: 20px;
+	font-size: 28rpx;
+	color: #555;
+	padding: 0 55rpx;
+	background: #f7f7f7;
+}
+.service_stata{
+	width: 710rpx;
+	background: #fff;
+	box-sizing: border-box;
+	padding: 57rpx 0 43rpx;
+	text-align: center; 
+}
+.service_stata_text{
+	display: inline-block;
+	text-align: left;
+	font-size: 26rpx;
+	color: #4b4b4b;
+	line-height: 42rpx;
+	padding: 0 44rpx 0 45rpx;
+	margin-bottom: 42rpx;
+}
+.service_stata_photo{
+	width: 659rpx;
+	height: 415rpx;
+	margin-bottom: 26rpx;
+}
+
+.hairdresser_view{}
+.hairdresser_unit{
+	display: inline-block;
+	box-sizing: border-box;
+	width: 350rpx;
+	height: 513rpx;
+	background: #fff; 
+	margin: 0 5rpx 10rpx;
+	padding-top: 22rpx;
+	text-align: center;
+}
+.hairdresser_headimg{
+	width: 237rpx;
+	height: 237rpx;
+	border-radius: 50%;
+}
+.hairdresser_name{
+	display: block;
+	max-width: 100%;
+	margin-top: 16rpx;
+	font-size: 30rpx;
+	color: #555;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.hairdresser_profession{
+	display: block;
+	max-width: 100%;
+	font-size: 26rpx;
+	color: #ababab;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.hairdresser_icon{
+	font-size: 22rpx;
+}
+.hairdresser_num{
+	margin-top: 18rpx;
+	padding: 0 24rpx 0 27rpx;
+	height: 48rpx;
+	text-align: left;
+}
+.hairdresser_record{
+	float: left;
+	font-size: 24rpx;
+	color: #5b5b5b;
+	line-height: 48rpx;
+	vertical-align: middle;
+}
+.hairdresser_reputation{
+	float: right;
+	font-size: 24rpx;
+	color: #cd0c0c;
+	line-height: 48rpx;
+	vertical-align: middle;
+}
+.hairdresser_subscribe{
+	margin: 8rpx auto 0;
+	width: 301rpx;
+	height: 55rpx;
+	border-radius: 27rpx;
+	background: #ff740e;
+	font-size: 28rpx;
+	color: #fff;
+	line-height: 55rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

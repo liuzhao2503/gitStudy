@@ -1,0 +1,49 @@
+/* pages/QR/QR.wxss */
+.card{
+	box-sizing: border-box;
+	width: 634rpx;
+	margin: 42rpx auto 0;
+	padding: 21rpx 0 50rpx;
+	background: #fff;
+	text-align: center;
+}
+.QR{
+	width: 571rpx;
+	height: 571rpx;
+    margin: 0 auto;
+}
+.show_view{
+	width: 540rpx;
+	margin: 38rpx auto 0;
+}
+.the_line{
+	border-top: 1px dotted #c1c1c1;
+	width: 540rpx;
+	height: 1px;
+	margin-bottom: 35rpx;
+	text-align: center;
+}
+.the_title{
+	display: inline-block;
+	position: relative;
+	top: -13px;
+	line-height: 20px;
+	font-size: 28rpx;
+	color: #555;
+	padding: 0 55rpx;
+	background: #fff;
+}
+.combo{
+	display: inline-block;
+	max-width: 100%;
+	font-size: 36rpx;
+	color: #525252;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.convert{
+	letter-spacing: 12rpx;
+	font-size: 38rpx;
+	color: #3a3a3a;
+}

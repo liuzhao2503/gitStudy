@@ -1,0 +1,86 @@
+.evaluate{
+	margin: 10rpx auto;
+	width: 710rpx;
+	background: #fff;
+	padding-bottom: 20rpx;
+}
+.evaluate_list_wu{
+    padding-top: 100rpx;
+    text-align: center;
+    color: #999;
+    font-size: 28rpx;
+}
+.evaluate_user{
+	width: 710rpx;
+	height: 121rpx;
+	position: relative;
+}
+.user_headimg{
+	display: inline-block;
+	height: 106rpx;
+	vertical-align: middle;
+	margin: 0 28rpx 0 39rpx;
+	padding-top: 15rpx;
+}
+.headimg{
+	width: 91rpx;
+	height: 91rpx;
+	border-radius: 50%;
+}
+.user_name{
+	display: inline-block;
+	width: 400rpx;
+	font-size: 28rpx;
+	color: #3a3a3a;
+	line-height: 121rpx;
+	vertical-align: middle;	
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.user_evaluate{
+	display: inline-block;
+	height: 121rpx;
+	vertical-align: middle;
+	position: absolute;
+	right: 21rpx;
+}
+.the_star{
+    padding: 0 5rpx;
+    color: #c0c0c0;
+	font-size: 17rpx;
+	line-height: 121rpx;
+}
+.user_text{
+	display: inline-block;
+	width: 633rpx;
+	margin: 0 28rpx 36rpx 49rpx;
+	font-size: 26rpx;
+	color: #595959;
+	line-height: 40rpx;
+}
+.user_photo{
+	padding-left: 49rpx;
+}
+.the_photo{
+	width: 120rpx;
+	height: 110rpx;
+	margin-right: 19rpx;
+}
+.evaluate_time_view{
+	padding-left: 49rpx;
+}
+.evaluate_time{
+	font-size: 24rpx;
+	color: #b8b8b8;
+	margin-right: 24rpx;
+}
+.the_star.active{
+    color: #d33232;
+}
+.the_star.index_content_starw{
+    background: -webkit-linear-gradient(0deg, #d33232, #d33232 50%, #c0c0c0 0%, #c0c0c0),
+                linear-gradient(90deg, #d33232, #d33232 50%, #c0c0c0 0%, #c0c0c0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

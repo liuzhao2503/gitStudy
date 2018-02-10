@@ -1,0 +1,14 @@
+<!--pages/recharge_success/recharge_success.wxml-->
+<view class='recharge_success'>
+  <image class='recharge_success_image' src='../../img/recharge_success.png'></image>
+  <text class='recharge_success_text'>充值成功</text>
+  <view class='recharge_success_price'>
+    ￥{{recharge_suc_price_int}}.
+    <text class='recharge_success_decimal'>{{recharge_suc_price_dec}}</text>
+  </view>
+  <view class='recharge_success_pay_type'>
+    <text class='recharge_success_pay_type_label'>付款信息</text>
+    <view class='recharge_success_pay_type_text'>微信支付</view>
+    <text class='recharge_success_pay_type_num'>-{{recharge_success_price}}</text>
+  </view>
+</view>

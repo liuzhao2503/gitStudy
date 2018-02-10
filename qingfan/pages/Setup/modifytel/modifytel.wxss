@@ -1,0 +1,45 @@
+.bangtel_box{
+    padding-top: 26rpx;
+}
+.bangtel_inputlist{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100rpx;
+    line-height: 100rpx;
+    background: #fff;
+    font-size: 30rpx;
+    padding: 0 32rpx 0 57rpx;
+    margin-bottom: 4rpx;
+}
+.bangtel_inputtel{
+    width: 170rpx;
+}
+.bangtel_yzbtn{
+    background: #ff740e;
+	width: 211rpx;
+	height: 67rpx;
+	font-size: 30rpx;
+    line-height: 67rpx;
+	color: #ffffff;
+    border-radius: 27rpx;
+}
+.bangtel_inputlist input{
+    padding-right: 20rpx;
+    flex: 1;
+    font-size: 30rpx;
+    color: #595959;
+}
+.bangtel_bottom{
+    width: 100%;
+     margin: 200rpx 0 0; 
+}
+.bangtel_bottom button{
+    width: 90%;
+    background: #ff740e;
+    color: #fff;
+    border-radius: 27rpx;
+}
+.newbangtel_inputlist{
+    margin-top: 26rpx;
+}

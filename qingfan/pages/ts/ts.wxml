@@ -1,0 +1,2 @@
+<!--pages/ts/ts.wxml-->
+<view class="ts_box">请退出小程序后重新进入，选择同意授权登录</view>

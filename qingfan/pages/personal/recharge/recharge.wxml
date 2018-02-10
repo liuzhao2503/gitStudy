@@ -1,0 +1,10 @@
+<!--pages/recharge/recharge.wxml-->
+<!-- 输入支付金额框 bagin -->
+<view class='recharge'>
+  <text class='recharge_label'>充值金额</text>
+  <input type='digit' class='recharge_text' bindinput='moneyinput' placeholder='请输入充值金额' placeholder-class="recharge_place_style" value='{{recharge_num}}'/>
+</view>
+<!-- 输入支付金额框 over -->
+<!-- 确定支付按钮 bagin -->
+<button class='recharge_confirm_pay_btn submit_btn_class' bindtap='submit_btn'>确定充值</button>
+<!-- 确定支付按钮 over -->

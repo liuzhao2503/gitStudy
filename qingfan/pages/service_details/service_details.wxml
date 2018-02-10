@@ -1,0 +1,44 @@
+<view class="banner">
+	<!-- <swiper indicator-dots="{{Banner_indicatorDots}}" autoplay="true" circular="true" interval="{{Banner_interval}}"  duration="{{Banner_duration}}" class="banner_swiper" indicator-active-color="#fff" indicator-color="rgba(255, 255, 255, 0.6)"  >
+		<block wx:for="{{banner_photo}}" wx:for-index="index" wx:for-item="banner_photo">
+			<swiper-item class="Banner_Photo" id="{{banner_photo.id}}">
+				<image src="{{banner_photo.path}}" class="slide-image" mode="aspectFill" />
+			</swiper-item>
+		</block>
+	</swiper> -->
+    <image mode='widthFix' src='{{banner_photo}}' class='banner_photo'></image>
+</view>
+<view class="price">
+	<text class="the_name">{{the_name}}</text>
+	<text class="the_pcice">￥{{the_pcice}}</text>
+</view>
+<view class="show_view">
+	<view class="the_line"><text class="the_title">服务说明</text></view>
+	<view class="service_stata">
+
+		<text class="service_stata_text">{{paragraph?paragraph:""}}</text>
+		<block wx:for="{{stata_img}}" wx:for-index="index" wx:for-item="stata_img">
+			<image mode='widthFix' src="{{stata_img}}" class="service_stata_photo" />
+		</block>
+	</view> 
+</view>
+<view class="show_view">
+	<view class="the_line"><text class="the_title">选择美发师</text></view>
+    <view class='hairdresser_list_wu' wx:if="{{hairdresser_list.length==0}}">暂无美发师</view>
+	<view class="hairdresser_view">
+		<scroll-view scroll-x style="white-space: nowrap;width: 100%;">
+			<block wx:for="{{hairdresser_list}}" wx:for-index="index" wx:for-item="hairdresser_list">
+				<view class="hairdresser_unit">
+					<image mode='widthFix' src="{{hairdresser_list.img}}" mode="aspectFill" class="hairdresser_headimg" />
+					<text class="hairdresser_name">{{hairdresser_list.barber_name}}</text>
+					<text class="icon iconfont icon-scissors hairdresser_profession">{{hairdresser_list.position}}</text>
+					<view class="hairdresser_num">
+						<text class="hairdresser_record">预约记录{{hairdresser_list.subscribe_record}}人</text>
+						<text class="hairdresser_reputation">好评{{hairdresser_list.comment}}%</text>
+					</view>
+					<button class="hairdresser_subscribe" bindtap='to_hairdresser_details' data-id="{{hairdresser_list.barber_id}}">点击预约</button>
+				</view>
+			</block>
+		</scroll-view>
+	</view>
+</view> 

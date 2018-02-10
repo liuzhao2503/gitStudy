@@ -1,0 +1,12 @@
+<view class="card">
+    <!-- <canvas  class='QR' style='width:500rpx;height:500rpx' canvas-id="mycanvas"></canvas> -->
+    <image class='QR' src="{{QR}}" bindtap='qrimg'></image>
+	<view class="show_view">
+		<view class="the_line"><text class="the_title">{{"预约服务项目"}}</text></view>
+		<text class="combo">{{combo}}</text>
+	</view>
+	<view class="show_view">
+		<view class="the_line"><text class="the_title">{{"消费码"}}</text></view>
+		<text class="convert">{{convert}}</text>
+	</view>
+</view>

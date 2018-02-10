@@ -1,0 +1,72 @@
+<view class='personal'>
+  <!-- 顶部信息 bagin -->
+  <view class='personalTop'>
+    <image class='personalHeadImg' src='{{personalimg}}'></image>
+    <view class='personalTopMsg'>
+      <text class='personalTopName'>{{personalName}}</text>
+      <text class='personalTopPhone' wx:if="{{personalPhone!=''}}">{{personalPhone}}</text>
+    </view>
+    <view class='personalRightIcon'>
+      <text class='iconfont icon-tongzhi' bindtap='tongzhi'></text>
+      <text class='iconfont icon-shezhi' bindtap='shezhi'></text>
+    </view>
+  </view>
+  <!-- 顶部信息 over -->
+  <!-- 内容-选项 bagin -->
+  <view class='personalContainer'>
+    <view class='personalContList' bindtap='goto_order'>
+      <text class='iconfont icon-biaozhuanhuan'></text>
+      <text class='personalListText'>我的订单</text>
+      <image class='personalListRightIcon' src='../../../img/rightIcon.png'></image>
+    </view>
+    <view class='personalContList' bindtap='goto_my_wallet'>
+      <text class='iconfont icon-wodeqianbao'></text>
+      <text class='personalListText'>我的钱包</text>
+      <image class='personalListRightIcon' src='../../../img/rightIcon.png'></image>
+    </view>
+    <view class='personalContList' bindtap='goto_seeyh'>
+      <text class='iconfont icon-Coupons'></text>
+      <text class='personalListText'>优惠券</text>
+      <image class='personalListRightIcon' src='../../../img/rightIcon.png'></image>
+    </view>
+    <view class='personalContList' bindtap='goto_my_address'>
+      <text class='iconfont icon-dingwei'></text>
+      <text class='personalListText'>收货地址</text>
+      <image class='personalListRightIcon' src='../../../img/rightIcon.png'></image>
+    </view>
+    <view class='personalContList' bindtap='goto_my_pj'>
+      <text class='iconfont icon-sps'></text>
+      <text class='personalListText'>我的评价</text>
+      <image class='personalListRightIcon' src='../../../img/rightIcon.png'></image>
+    </view>
+    <view class='personalContList' bindtap='goto_my_collection'>
+      <text class='iconfont icon-shoucang'></text>
+      <text class='personalListText'>我的收藏</text>
+      <image class='personalListRightIcon' src='../../../img/rightIcon.png'></image>
+    </view>
+    <view class='personalContList' bindtap='goto_kefercode'>
+      <text class='iconfont icon-kefu'></text>
+      <text class='personalListText'>微信客服</text>
+      <image class='personalListRightIcon' src='../../../img/rightIcon.png'></image>
+    </view>
+    <view class='personalContList' bindtap='goto_kef'>
+      <text class='iconfont icon-kefu1'></text>
+      <text class='personalListText'>客服热线</text>
+      <image class='personalListRightIcon' src='../../../img/rightIcon.png'></image>
+    </view>
+  </view>
+  <!-- 内容-选项 over -->
+  <!-- 底部tabbar bagin -->
+  <!-- <view class='publicTabbar'>
+    <view>
+      <text class='iconfont icon-'></text>
+    </view>
+    <view></view>
+    <view></view>
+  </view> -->
+  <!-- 底部tabbar over -->
+</view>
+<view class='shop_home_QRcode_model' wx:if="{{QRcode_model}}">
+  <text class='shop_home_QRcode_mask' catchtap='hide_code'></text>
+  <image class='shop_home_QRcode_image' src='{{qrcode_img}}'></image>
+</view>

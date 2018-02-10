@@ -1,0 +1,42 @@
+/* pages/shop/Detailsrefunds/Detailsrefunds.wxss */
+.detailstefunds_top{
+    background: #ff740e;
+    color: #fff;
+    font-size: 36rpx;
+    line-height: 36rpx;
+    padding: 55rpx 0 51rpx 57rpx;
+}
+.detailstefunds_toptime{
+    margin-top: 40rpx;
+    font-size: 28rpx;
+    line-height: 28rpx;
+}
+.detailstefunds_Middle_top{
+    background: #fff;
+    text-align: center;
+    font-size: 30rpx;
+    line-height: 30rpx;
+    padding: 30rpx 0;
+    color: #828080;
+    border-bottom: 1rpx solid #f7f7f7;
+}
+.detailstefunds_Middle_list{
+    font-size: 28rpx;
+    padding: 0 129rpx 0 59rpx;
+    color: #9a9595;
+}
+.detailstefunds_Middle_list view{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 32rpx;
+}
+.detailstefunds_Middle_list view:before{
+    display: inline-block;
+    margin-right: 8rpx;
+    width: 16rpx;
+	height: 16rpx;
+    background: #d6d6d6;  
+    border-radius: 50%;
+    content: "";  
+}

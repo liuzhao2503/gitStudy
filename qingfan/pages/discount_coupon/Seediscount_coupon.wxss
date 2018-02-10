@@ -1,0 +1,106 @@
+/* pages/discount_coupon/discount_coupon.wxss */
+Page{padding-bottom: 68rpx;}
+.coupon_view{
+	width: 685rpx;
+	margin-top: 42rpx;
+	padding-left: 65rpx;
+}
+.coupon_view_wu{
+    text-align: center;
+    font-size: 30rpx;
+    padding-right: 65rpx;
+    color: #999;
+}
+.unit{
+	margin-bottom: 19rpx;
+	width: 632rpx;
+	height: 208rpx;
+	position: relative;
+}
+.the_left{
+	display: inline-block;
+	width: 273rpx;
+	height: 208rpx;
+	position: relative;
+	left: -21rpx;
+}
+.coupon_img{
+	width: 273rpx;
+	height: 208rpx;
+}
+.price{
+	position: absolute;
+	top: 0;bottom: 0;
+	left: 0;right: 0;
+	padding-top: 56rpx;
+	text-align: center;
+}
+.price_ico{
+	font-size: 33rpx;
+	line-height: 40rpx;
+	color: #fcf626;
+}
+.price_num{
+	font-size: 45rpx;
+	line-height: 40rpx;
+	color: #fcf626;
+	font-weight: normal;
+}
+.price_condition{
+	display: inline-block;
+	width: 100%;
+	font-size: 24rpx;
+	line-height: 64rpx;
+	color: #fcf626;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.text{
+	display: inline-block;
+	width: 60%;
+	position: absolute;
+	right: 0;
+	padding-top: 38rpx;
+	text-align: center;
+}
+.name{
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	color: #f9f9f9;
+	font-size: 26rpx;
+	line-height: 40rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.name_type{
+	color: #f9f9f9;
+	font-size: 40rpx;
+	line-height: 40rpx;
+}
+.shop{
+	display: inline-block;
+	height: 45rpx;
+	max-width: 76%;
+    min-width: 50%;
+	font-size: 26rpx;
+	line-height: 40rpx;
+	color: #e8c203;
+	padding: 0 42rpx;
+	background: #fff;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.time_limit{
+	display: inline-block;
+	width: 100%;
+	font-size: 21rpx;
+	color: #a98d00;
+	line-height: 40rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

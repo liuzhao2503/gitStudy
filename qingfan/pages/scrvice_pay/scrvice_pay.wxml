@@ -1,0 +1,109 @@
+<view class="the_form">
+    <view class='scrvice_shop' wx:if="{{stute==1}}">
+        <image class='scrvice_shop_left' src='{{shopimg}}'></image>
+        <view class='scrvice_shop_right'>
+            <view class='scrvice_shop_shopname'>{{shopname}}</view>
+            <view class='scrvice_shop_shul'><view class='scrvice_shop_shopPrice'>￥{{shopPrice}}</view><view class='scrvice_shop_shopnum'>X{{shopnum}}</view></view>
+        </view>
+    </view>
+	<view class="form_item" wx:if="{{stute==0}}"> 
+		<text class="form_item_text">服务项目</text>
+		<input value="{{fwname}}" class="form_item_input" disabled="true" />
+	</view>
+	<view class="form_item" wx:if="{{stute==0}}">
+		<text class="form_item_text">消费金额</text>
+		<input value="{{all}}元" class="form_item_input" disabled="true" />
+	</view>
+    <view class="form_item" wx:if="{{stute==1}}">
+		<text class="form_item_text">快递费</text>
+		<input value="{{express}}元" class="form_item_input" disabled="true" />
+	</view>
+	<view class="form_item" bindtap='goto_used_coupon'>
+		<text class="form_item_text">优惠券</text>
+		<input value="-￥{{sale}}" class="form_item_input_2" disabled="true" />
+		<text class="form_item_text_2">{{discountstate?discountstate:"可用优惠券"+discountnum+"张"}}</text>
+		<image src="../../img/rightIcon.png" class="arrow" />
+	</view>
+	<view class="form_item_2">
+		<text class="item_2_all">共计￥{{all}}</text>
+		<text class="item_2_sale">优惠￥{{sale}}</text>
+		<text class="item_2_true">实付</text>
+		<text class="item_2_num">￥{{num}}</text>
+	</view>
+</view>
+<view class="pay">
+	<text class="pay_text">选择付款方式</text>
+	<view class="pay_view">
+		<radio-group bindchange="radioChange">
+			<label class="" wx:for="{{payfor}}"  wx:for-item="payfor">
+				<view class="payfor_item {{payfor.item_border}}">
+					<text class="icon iconfont {{payfor.ico}}"></text>
+					<text class="payfor_item_text">{{payfor.value}}</text>
+					<view class="item_check_2">
+						<!-- <view class="item_check_2_border {{payfor.checked?'active':''}}"></view> -->
+                        <image class='item_check_dx' src='{{payfor.checked?"../../img/dx2.png":"../../img/dx.png"}}'></image>
+					</view>
+					<radio class="payfor_item_radio" value="{{payfor.name}}" checked="{{payfor.checked}}" />
+				</view>
+			</label>
+		</radio-group>
+	</view>
+</view>
+<view wx:if="{{stute==1}}">
+    <text class="pay_text">收货方式</text>
+    <view class="pay_view">
+		<radio-group bindchange="goodsreceiptradioChange">
+			<label class="" wx:for="{{goodsreceipt}}"  wx:for-item="goodsreceipt">
+				<view class="payfor_item {{goodsreceipt.item_border}}">
+					<text class="icon iconfont {{goodsreceipt.ico}}"></text>
+					<text class="payfor_item_text">{{goodsreceipt.value}}</text>
+					<view class="item_check_2">
+                        <image class='item_check_dx' src='{{goodsreceipt.checked?"../../img/dx2.png":"../../img/dx.png"}}'></image>
+					</view>
+					<radio class="payfor_item_radio" value="{{goodsreceipt.name}}" checked="{{goodsreceipt.checked}}" />
+				</view>
+			</label>
+		</radio-group>
+	</view>
+</view>
+<view class="bottom">
+	<text class="bottom_text">合计</text>
+	<text class="bottom_price">{{actual_fee}}元</text>
+	<view class="bottom_button" catchtap="pay">
+		<text class="bottom_button_text">{{button_text}}</text>
+	</view>
+</view>
+<view wx:if="{{wallets_password_flag}}" class="wallets-password">
+  <view class="input-content-wrap">
+    <view class="top">
+      <view catchtap="close_wallets_password" class="close">×</view>
+      <view class="pop_title">请输入支付密码</view>
+    </view>
+    <view class="actual_fee">
+      <span>￥</span>
+      <text>{{actual_fee2}}</text>
+    </view>
+    <view catchtap="set_Focus" class="input-password-wrap">
+      <view class="password_dot">
+        <i wx:if="{{wallets_password.length>=1}}"></i>
+      </view>
+      <view class="password_dot">
+        <i wx:if="{{wallets_password.length>=2}}"></i>
+      </view>
+      <view class="password_dot">
+        <i wx:if="{{wallets_password.length>=3}}"></i>
+      </view>
+      <view class="password_dot">
+        <i wx:if="{{wallets_password.length>=4}}"></i>
+      </view>
+      <view class="password_dot">
+        <i wx:if="{{wallets_password.length>=5}}"></i>
+      </view>
+      <view class="password_dot">
+        <i wx:if="{{wallets_password.length>=6}}"></i>
+      </view>
+    </view>
+    <button class="suretopay" bindtap='suretopay'>确定付款</button>
+  </view>
+  <input bindinput="set_wallets_password" class="input-content" password type="number" focus="{{isFocus}}" maxlength="6" />
+</view>

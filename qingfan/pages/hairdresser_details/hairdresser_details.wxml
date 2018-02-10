@@ -1,0 +1,78 @@
+<view class="card">
+    <view class="card_headimg">
+        <image src="{{img}}" class="card_headimg_photo" />
+    </view>
+    <view class="card_data">
+        <text class="card_data_name">{{barber_name}}</text>
+        <text class="card_data_good">好评{{comment}}%</text>
+        <text class="card_data_appraise" bindtap='to_client_evaluate'>查看顾客评价→</text>
+    </view>
+    <view class="card_other">
+        <text class="icon iconfont icon-scissors card_other_type">{{position}}</text>
+        <text class="card_other_num">预约记录{{subscribe_count}}人</text>
+    </view>
+</view>
+<view class="show_view">
+    <view class="the_line">
+        <text class="the_title">服务列表</text>
+    </view>
+    <view class='scrvice_list_box'>
+        <view class="scrvice_list">
+            <checkbox-group bindchange="checkboxChange">
+                <view class='scrvice_list_wu' wx:if="{{scrvice_list.length==0}}">暂无服务</view>
+                <block wx:for="{{scrvice_list}}" wx:for-index="index" wx:for-item="scrvice_list">
+                    <view class="checkbox scrvice_item">
+                        <view class='checkbox_in'>
+                            <checkbox value="{{index+1}}" checked="{{scrvice_list.bool}}" class="item_check" />
+                            <view class="item_check_2">
+                                <view class="item_check_2_border {{scrvice_list.bool?'item_check_2_border2':''}}">
+                                    <view class="item_check_2_inside" wx:if="{{scrvice_list.bool}}"></view>
+                                </view>
+                            </view>
+                            <view class='goto_service_detail' bindtap='goto_service_detail' data-id="{{scrvice_list.service_id}}">
+                                <text class="item_name">{{scrvice_list.service_name}}</text>
+                                <text class="item_pcice">￥{{scrvice_list.service_price}}</text>
+                                <image src="{{'../../img/rightIcon.png'}}" class="arrow" />
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </checkbox-group>
+        </view>
+    </view>
+</view>
+<view class="show_view">
+    <view class="the_line">
+        <text class="the_title">预约人信息</text>
+    </view>
+    <view class="massage_view">
+        <view class="massage_view_unit">
+            <text class="massage_type">姓名</text>
+            <view class='massage_view_input'>
+                <input class="massage_input" placeholder="请输入姓名" bindinput="name" />
+            </view>
+        </view>
+        <view class="massage_view_unit">
+            <text class="massage_type">电话</text>
+            <view class='massage_view_input'>
+                <input class="massage_input" placeholder="请输入电话" bindinput="tel" maxlength="11" type="number" />
+            </view>
+        </view>
+        <view class="massage_view_unit">
+            <text class="massage_type">预约时间</text>
+            <view class='massage_view_input'>
+                <picker mode="multiSelector" class='massage_input massage_inputtb' bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{value}}" range="{{timeArray}}">
+                    {{pageday==""?"请选择时间":pageday+" "+pagehour+""+pageminute}}
+                </picker>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="bottom">
+    <text class="bottom_text">合计</text>
+    <text class="bottom_price">{{allprice}}元</text>
+    <view class="bottom_button" bindtap='to_scrvice_pay'>
+        <text class="bottom_button_text">立即预约</text>
+    </view>
+</view>
+<text class="hint" wx:if="{{hint}}">尚有未填写的信息</text>

@@ -1,0 +1,78 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/hairdresser_details/hairdresser_details",
+        "pages/Collection/Collection",
+        "pages/shop/commodity/commodity",
+        "pages/Settled/Settled",
+        "pages/shop/product_list/product_list",
+        "pages/shop/Orderlist/Orderlist",
+        "pages/shop/Orderdetails/Orderdetails",
+        "pages/shop/Refundapplication/Refundapplication",
+        "pages/shop/Returngoods/Returngoods",
+        "pages/notice/gonggao_details/gonggao_details",
+        "pages/Setup/modifytel/modifytel",
+        "pages/Setup/modifypaymentm/modifytelpaymentm",
+        "pages/personal/personal_page/personal_page",
+        "pages/personal/my_wallet/my_wallet",
+        "pages/personal/my_address/my_address",
+        "pages/service_details/service_details",
+        "pages/notice/gonggao/gonggao",
+        "pages/personal/recharge_success/recharge_success",
+        "pages/personal/edit_address/edit_address",
+        "pages/personal/add_address/add_address",
+        "pages/personal/recharge/recharge",
+        "pages/personal/recharge_fail/recharge_fail",
+        "pages/Setup/bangtel/bangtel",
+        "pages/Setup/Setup",
+        "pages/QR/QR",
+        "pages/shop/shop_home/shop_home",
+        "pages/discount_coupon/collardiscount_coupon",
+        "pages/discount_coupon/Seediscount_coupon",
+        "pages/discount_coupon/Usediscount_coupon",
+        "pages/service_list/service_list",
+        "pages/map/map",
+        "pages/scrvice_pay/scrvice_pay",
+        "pages/evaluate/general_evaluate/general_evaluate",
+        "pages/evaluate/client_evaluate/client_evaluate",
+        "pages/evaluate/addevaluate/addevaluate",
+        "pages/shop/Returninformation/Returninformation", 
+        "pages/shop/Returninaddress/Returninaddress",
+        "pages/edit_password/edit_password",
+        "pages/Setup/forgetpaymentm/forgetpaymentm",
+        "pages/ts/ts",
+        "pages/img_xq/img_xq",
+        "pages/shop/Detailsrefunds/Detailsrefunds",
+        "pages/Orderlist/Orderlist"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#6c6c6c",
+        "selectedColor": "#ee2e64",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "iconPath": "img/shop2.png",
+                "selectedIconPath": "img/shop.png",
+                "text": "店铺"
+            },
+            {
+                "pagePath": "pages/Orderlist/Orderlist",
+                "iconPath": "img/order2.png",
+                "selectedIconPath": "img/order.png",
+                "text": "我的订单"
+            },
+            {
+                "pagePath": "pages/personal/personal_page/personal_page",
+                "iconPath": "img/user2.png",
+                "selectedIconPath": "img/user.png",
+                "text": "个人中心"
+            }
+        ]
+    }
+}

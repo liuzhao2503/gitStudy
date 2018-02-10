@@ -1,0 +1,110 @@
+<view>
+<view class="banner">
+	<!-- <swiper indicator-dots="{{Banner_indicatorDots}}" autoplay="true" circular="true" interval="{{Banner_interval}}"  duration="{{Banner_duration}}" indicator-active-color="#fff" indicator-color="rgba(255, 255, 255, 0.6)">
+		<block wx:for="{{imgurls}}" wx:for-index="index" wx:for-item="imgurls">
+			<swiper-item class="xw_index_Banner_Photo" id="{{imgurls.id}}">
+				<image src="{{imgurls.path}}" class="slide-image" mode="aspectFill" />
+			</swiper-item>
+		</block>
+	</swiper> -->
+    <image bindtap='imgurl' class='imgurls_top' src='{{imgurls}}' mode='widthFix'></image>
+</view>
+<view class="visiting_card">
+	<text class="card_title">店铺名片</text>
+	<text class="icon iconfont icon-erweima card_QR" bindtap='shop_home_hide_code'></text>
+	<view class="visiting_card_line">
+		<text class="visiting_card_line_text_1">联系电话</text>
+		<text class="visiting_card_line_text_2">{{tel}}</text>
+		<view class="visiting_card_tel_icon" bindtap='makePhoneCalltel'>
+			<image mode='widthFix' src="../../../img/tel.png" class="visiting_card_line_photo" />
+		</view>
+	</view>
+	<view class="visiting_card_line">
+		<text class="visiting_card_line_text_1">营业时间</text>
+		<text class="visiting_card_line_text_2">{{time}}</text>
+		<!-- <text class="icon iconfont visiting_card_line_icon"></text> -->
+	</view>
+	<view class="visiting_card_line">
+		<text class="visiting_card_line_text_1">店铺地址</text>
+		<text class="visiting_card_line_text_2">{{add}}</text>
+		<text class="icon iconfont icon-dingwei1 visiting_card_line_icon" data-id="{{store_id}}" bindtap='gotomap'></text>
+	</view>
+	<view class="discount_coupon" bindtap="to_discount_coupon">
+		<text class="icon iconfont icon-Coupons discount_coupon_icon"></text>
+		<text class="discount_coupon_text_1">店铺优惠券</text> 
+		<text class="discount_coupon_text_2">去领取</text>
+		<image  src="../../../img/rightIcon.png" class="arrow arrow_2" />
+	</view>
+</view>
+<view class="collect_view {{love_store==true?'store_home_love_store':''}}" bindtap='store_home_love_store'>
+	<text class="icon iconfont icon-star collect_text"></text>
+	<text class="collect_text">{{love_store?"已收藏":"收藏店铺"}}</text>
+</view>
+<view class="show_view">
+	<view class="the_line"><text class="the_title">店铺美发师</text></view>
+	<view class="hairdresser_view">
+        <view class='hairdresser_list_wu' wx:if="{{hairdresser_list.length==0}}">暂无理发师</view>
+		<scroll-view scroll-x style="white-space: nowrap;width: 100%;">
+			<block wx:for="{{hairdresser_list}}" wx:for-index="index" wx:for-item="hairdresser_list">
+				<view class="hairdresser_unit">
+					<image mode='widthFix' src="{{hairdresser_list.img}}" mode="aspectFill" class="hairdresser_headimg" />
+					<text class="hairdresser_name">{{hairdresser_list.barber_name}}</text>
+					<text class="icon iconfont icon-scissors hairdresser_profession">{{hairdresser_list.position}}</text>
+					<view class="hairdresser_num">
+						<text class="hairdresser_record">预约记录{{hairdresser_list.subscribe_record}}人</text>
+						<text class="hairdresser_reputation">好评{{hairdresser_list.comment}}%</text>
+					</view>
+					<button class="hairdresser_subscribe" data-id="{{hairdresser_list.barber_id}}"  bindtap="to_hairdresser_details">点击预约</button>
+				</view>
+			</block>
+		</scroll-view>
+	</view>
+</view>
+<view class="show_view">
+	<view class="the_line"><text class="the_title">店铺服务</text></view>
+    <view class='hairdresser_list_wu' wx:if="{{serve_list.length==0}}">暂无服务</view>
+	<block wx:for="{{serve_list}}" wx:for-index="index" wx:for-item="serve_list">
+		<view class="serve" bindtap="to_fuwu_details" data-id="{{serve_list.service_id}}">
+			<image mode='aspectFill' src="{{serve_list.service_img}}" class="serve_photo" />
+			<view class="serve_text">
+				<text class="serve_title">{{serve_list.service_name}}</text>
+				<text class="serve_price">￥{{serve_list.service_money}}</text>
+			</view>
+			<image mode='aspectFill' src="{{'../../../img/rightIcon.png'}}" class="arrow" />
+		</view>
+	</block>
+	<view class="serve_more" bindtap="to_fuwu_list" wx:if="{{serve_list.length!=0}}">
+		<text class="more_text">查看更多</text>
+	</view>
+</view>
+
+<view class="show_view">
+	<view class="the_line"><text class="the_title">大家都在买</text></view>
+	<view class="recommend_view">
+        <view class='recommend_view_list_wu' wx:if="{{recommend_list.length==0}}">暂无商品</view>
+		<block wx:for="{{recommend_list}}" wx:for-index="index" wx:for-item="recommend_list">
+			<navigator class="recommend_unit" url='../commodity/commodity?id={{recommend_list.goods_id}}&store_id={{store_id}}'>
+            <view class='shop_list_ppai' wx:if="{{recommend_list.store_id==0}}">品牌</view>
+				<image mode='aspectFill' src="{{recommend_list.goods_img}}"  class="recommend_photo" />
+				<text class="recommend_state">{{recommend_list.goods_name}}</text>
+				<view class="recommend_num">
+					<text class="recommend_price">￥{{recommend_list.goods_price}}</text>
+					<text class="recommend_paynum">{{recommend_list.buy}}人付款</text>
+				</view>
+			</navigator>
+		</block>
+	</view>
+	<navigator class="recommend_more" wx:if="{{recommend_list.length!=0}}" url='../product_list/product_list?store_id={{store_id}}'>
+		<text class="more_text">查看更多</text>
+	</navigator>
+</view>
+
+
+<view  class='shop_home_QRcode_model {{QRcode_state?"QRcode_show":"QRcode_hide"}}' >
+  <text class='shop_home_QRcode_mask' ></text>
+  <view class='shop_home_QRcode_image'>
+    <!-- <canvas  class='canv' canvas-id="mycanvas"></canvas> -->
+    <image class='shop_home_qrcode' src='{{qrcode}}' ></image>
+  </view>
+</view>
+</view>

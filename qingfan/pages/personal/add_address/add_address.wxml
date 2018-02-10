@@ -1,0 +1,33 @@
+<!--pages/add_address/add_address.wxml-->
+<!-- 个人信息 bagin -->
+<view class="add_address">
+  <view class='change_address_msg_list'>
+    <text class='change_address_msg_list_label'>姓名</text>
+    <input type='text' maxlength='8' class='change_address_msg_list_input' placeholder='收货人姓名' placeholder-class='change_address_msg_list_place' bindinput='add_name' value='{{add_address_user_name}}'></input>
+  </view>
+  <view class='change_address_msg_list'>
+    <text class='change_address_msg_list_label'>电话</text>
+    <input type='number' class='change_address_msg_list_input' placeholder='收货人电话' placeholder-class='change_address_msg_list_place' maxlength='11' bindinput='add_phone' value='{{add_address_user_phone}}'></input>
+  </view>
+  <view class='change_address_msg_list'>
+    <text class='change_address_msg_list_label'>地址</text>
+    <picker class='change_address_msg_list_pickerbox' mode="region" bindchange="add_address_choosed_city">
+    <input type='text' disabled class='change_address_msg_list_input' placeholder='选择地址' placeholder-class='change_address_msg_list_place' value='{{add_address_choose_city.length!=0?add_address_choose_city[0]+"-"+add_address_choose_city[1]+"-"+add_address_choose_city[2]:""}}'></input>
+  </picker>
+  </view>
+</view>
+<!-- 个人信息 over -->
+<!-- 地址信息 bagin -->
+<textarea class='change_address_textarea' bindinput='add_detailed' value='{{add_address_detailed}}' placeholder='请输入详细地址' placeholder-class='change_address_textarea_place' maxlength='100'></textarea>
+<!-- 地址信息 over -->
+<!-- 设置为默认地址 bagin -->
+<view class='change_address_set_default'>
+  <view class='change_address_set_default_box' bindtap='add_address_choose_default'>
+    <icon class='change_address_set_default_icon' type="success" size="13" color="{{add_address_set_default==true?'#db0202' : '#9f9f9f'}}"/>
+    <text class='change_address_set_text {{add_address_set_default==true?"change_address_set_text_act":"change_address_set_text_noact"}}'>设为默认地址</text>
+  </view>
+</view>
+<!-- 设置为默认地址 over -->
+<!-- 底部按钮 bagin -->
+<button class='button_big_submit change_address_submit_btn' bindtap='addaddress_btn'>增加收货地址</button>
+<!-- 底部按钮 over -->

@@ -1,0 +1,110 @@
+/* pages/add_address/add_address.wxss */
+page,view,text,textarea{
+  box-sizing: border-box;
+}
+page{
+  width: 100%;
+  background-color: #f7f7f7;
+  height: 100%;
+  padding-top:20rpx; 
+}
+.add_address{
+  width: 100%;
+  background-color: #fff;
+}
+.change_address_msg_list{
+  width: 100%;
+  padding:0 58rpx;
+  position: relative;
+  height: 100rpx;
+}
+.change_address_msg_list_label{
+  position: absolute;
+  left: 58rpx;
+  top: 0;
+  line-height:100rpx;
+  font-size: 30rpx;
+  color: #595959;
+}
+.change_address_msg_list_input{
+  width: 100%;
+  box-sizing: border-box;
+  padding-left:121rpx;
+  font-size: 30rpx;
+  color: #595959;
+  line-height: 100rpx;
+  height: 100rpx;
+}
+.change_address_msg_list_pickerbox{
+  width: 100%;
+  height: 100%;
+}
+.change_address_msg_list_place{
+  color: #d6d6d6;
+  line-height:100rpx;
+}
+.change_address_textarea{
+  width: 100%;
+  background-color: #fff;
+  margin-top:45rpx;
+  padding: 38rpx 68rpx 37rpx 59rpx;
+  color: #595959;
+  font-size: 26rpx;
+  line-height: 2em;
+  height: 9em;
+  display: block;
+}
+.change_address_textarea_place{
+  color: #d6d6d6;
+}
+.change_address_set_default{
+  background-color: #fff;
+  padding:0 60rpx;
+  height:83rpx;
+  border-top: solid 2rpx #f7f7f7;
+}
+.change_address_set_default_box{
+  display: inline-block;
+  height: 100%;
+  line-height:84rpx;
+}
+.change_address_set_default_icon{
+  font-size: 26rpx;
+}
+.change_address_set_text{
+  font-size: 26rpx;
+  margin-left: 16rpx;
+  display: inline-block;
+  line-height: 83rpx;
+}
+.change_address_set_text_noact{
+  color: #595959;
+}
+.change_address_set_text_act{
+  color: #b90707;
+}
+.change_address_option_button{
+  font-size: 26rpx;
+  float: right;
+  color: #595959;
+  line-height:83rpx;
+  background-color: transparent;
+  border: none;
+  display: inline-block;
+  width: 4em;
+  margin-left:22rpx;
+  text-align: center;
+}
+
+.button_big_submit{
+  width:690rpx;
+  height: 95rpx;
+  background-color: #ff740e;
+  color: #fff;
+  border-radius: 27rpx;
+  font-size: 36rpx;
+  line-height:95rpx;
+}
+.change_address_submit_btn{
+  margin-top: 98rpx;
+}

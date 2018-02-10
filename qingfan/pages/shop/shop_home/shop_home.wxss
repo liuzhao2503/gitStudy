@@ -1,0 +1,403 @@
+/* pages/shop_home/shop_home.wxss */
+Page{background: #f7f7f7;}
+.banner{
+    /*  */
+    overflow: hidden;
+    max-height:750rpx;
+}
+.imgurls_top{
+    /* margin-top:-50rpx; */
+    width: 100%;
+    height: 345rpx;
+}
+.hairdresser_list_wu,.recommend_view_list_wu{
+    text-align: center;
+    color: #999;
+    font-size: 28rpx;
+    padding: 20rpx 0;
+}
+.recommend_view_list_wu{
+    flex: 1;
+}
+.clear{clear:both;}
+.xw_index_Banner{
+	width: 750rpx;
+	height: 347rpx;
+}
+.xw_index_Banner_Swiper{
+	width: 750rpx;
+	height: 347rpx;
+}
+.xw_index_Banner_Photo image{
+	width: 750rpx;
+	height: 347rpx;
+}
+.visiting_card{
+	margin: 16rpx auto 0;
+	width: 94.67%;
+	background: #fff;
+	padding-top: 11rpx;
+}
+.card_title{
+	display: inline-block;
+	line-height: 50rpx;
+	width: 183rpx;
+	height: 50rpx;
+	background: #ee2e64;
+	border-radius: 0 25rpx 25rpx 0;
+	font-size: 28rpx;
+	color: #fff;
+	text-align: center;
+	margin-bottom: 64rpx;
+}
+.card_QR{
+	margin-right: 26rpx;
+	font-size: 61rpx;
+	color: #a9a9a9;
+	float: right;
+}
+.visiting_card_line{
+	width: 100%;
+	position: relative;
+	height: 56rpx;
+}
+.visiting_card_line_text_1{
+	display: inline-block;
+	width: 104rpx;
+	font-size: 25rpx;
+	color: #898989;
+	line-height: 56rpx;
+	margin: 0 28rpx 0 33rpx;
+	vertical-align: middle;
+}
+.visiting_card_line_text_2{
+	display: inline-block;
+	font-size: 25rpx;
+	color: #555;
+	line-height: 56rpx;
+	width: 390rpx;
+	vertical-align: middle;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.visiting_card_tel_icon{
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 56rpx;
+	padding-right: 33rpx;
+	width: 50rpx;
+	text-align: right;
+}
+.visiting_card_line_photo{
+	width: 23rpx;
+	height: 32rpx;
+}
+.visiting_card_line_icon{
+	font-size: 34rpx;
+	color: #ff740e;
+	position: absolute;
+	right: 33rpx;
+	line-height: 56rpx;
+	vertical-align: middle;
+}
+.discount_coupon{
+	margin: 20rpx 22rpx 0 26rpx;
+	width: 662rpx;
+	height: 108rpx;
+	border-top: 1px dotted #c1c1c1;
+	position: relative;
+}
+.discount_coupon_text_1{
+	color: #cb0c0c;
+	font-size: 26rpx;
+	line-height: 108rpx;
+	vertical-align: middle;
+}
+.discount_coupon_text_2{
+	position: absolute;
+	right: 66rpx;
+	color: #989898;
+	font-size: 24rpx;
+	line-height: 108rpx;
+	vertical-align: middle;
+}
+.discount_coupon_icon{
+	font-size: 46rpx;
+	color: #cb0c0c;
+	line-height: 108rpx;
+	margin: 0 16rpx 0 14rpx;
+	vertical-align: middle;
+}
+.collect_view{
+	margin: 2rpx auto 0;
+	width: 94.67%;
+	height: 59rpx;
+	background: #fff;
+	text-align: center;
+}
+.collect_text{
+	color: #a9a9a9;
+	font-size: 24rpx;
+    margin-right: 14rpx;
+}
+
+.show_view{
+	width: 710rpx;
+	margin: 38rpx auto 0;
+}
+.the_line{
+	border-top: 1px dotted #c1c1c1;
+	width: 710rpx;
+	height: 1px;
+	margin-bottom: 35rpx;
+	text-align: center;
+}
+.the_title{
+	display: inline-block;
+	position: relative;
+	top: -13px;
+	line-height: 20px;
+	font-size: 28rpx;
+	color: #555;
+	padding: 0 55rpx;
+	background: #f7f7f7;
+}
+.hairdresser_view{}
+.hairdresser_unit{
+	display: inline-block;
+	box-sizing: border-box;
+	width: 350rpx;
+	height: 513rpx;
+	background: #fff; 
+	margin: 0 5rpx 10rpx;
+	padding-top: 22rpx;
+	text-align: center;
+}
+.hairdresser_headimg{
+	width: 237rpx;
+	height: 237rpx;
+	border-radius: 50%;
+}
+.hairdresser_name{
+	display: block;
+	max-width: 100%;
+	margin-top: 16rpx;
+	font-size: 30rpx;
+	color: #555;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.hairdresser_profession{
+	display: block;
+	max-width: 100%;
+	font-size: 26rpx;
+	color: #ababab;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.hairdresser_icon{
+	font-size: 22rpx;
+}
+.hairdresser_num{
+	margin-top: 18rpx;
+	padding: 0 24rpx 0 27rpx;
+	height: 48rpx;
+	text-align: left;
+}
+.hairdresser_record{
+	float: left;
+	font-size: 24rpx;
+	color: #5b5b5b;
+	line-height: 48rpx;
+	vertical-align: middle;
+}
+.hairdresser_reputation{
+	float: right;
+	font-size: 24rpx;
+	color: #cd0c0c;
+	line-height: 48rpx;
+	vertical-align: middle;
+}
+.hairdresser_subscribe{
+	margin: 8rpx auto 0;
+	width: 301rpx;
+	height: 55rpx;
+	border-radius: 27rpx;
+	background: #ff740e;
+	font-size: 28rpx;
+	color: #fff;
+	line-height: 55rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.serve{
+	box-sizing: border-box;
+	background: #fff;
+	border-bottom: 1px solid #f7f7f7;
+	width: 100%;
+	height: 123rpx;
+	position: relative;
+}
+.serve_photo{
+	margin: 12rpx 0 0 14rpx;
+	width: 120rpx;
+	height: 95rpx;
+	vertical-align: middle;
+}
+.serve_text{
+	display: inline-block;
+	width: 68%;
+	margin-left: 47rpx;
+	vertical-align: middle;
+}
+.serve_title{
+	display: inline-block;
+	width: 100%;
+	font-size: 26rpx;
+	color: #595959;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.serve_price{
+	display: inline-block;
+	width: 100%;
+	font-size: 32rpx;
+	color: #cd0c0c;
+}
+.arrow{
+	position: absolute;
+	right: 24rpx;top: 49rpx;
+	width: 14rpx;
+	height: 25rpx;
+}
+.arrow_2{
+	right: 32rpx;top: 44rpx;
+}
+.serve_more{
+	background: #fff;
+	width: 100%;
+	height: 59rpx;
+	text-align: center;
+}
+.more_text{
+	line-height: 59rpx;
+	font-size: 24rpx;
+	color: #777;
+}
+.recommend_more{
+	width: 100%;
+	height: 59rpx;
+	text-align: center;
+}
+.recommend_view{
+	width: 710rpx;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.shop_list_ppai{
+    position: absolute;
+    top: 17rpx;
+    right: 18rpx;
+    background: #ee2e64;
+    font-size: 24rpx;
+    color: #fff;
+    text-align: center;
+    line-height: 63rpx;
+    border-radius: 50%;
+    width: 63rpx;
+	height: 63rpx;
+}
+.recommend_unit{
+    position: relative;
+	box-sizing: border-box;
+	width: 350rpx;
+	background: #fff;
+	margin-bottom: 10rpx; 
+	padding: 10rpx; 
+}
+.recommend_photo{
+	width: 330rpx;
+	height: 202rpx;
+}
+.recommend_state{
+	padding: 13rpx 0 0 13rpx;
+	font-size: 26rpx;
+	color: #666;
+	line-height: 38rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+.recommend_num{
+	width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+	margin-top: 30rpx;
+    line-height: 32rpx;
+    padding-bottom: 10rpx;
+}
+.recommend_price{
+	font-size: 32rpx;
+	color: #cd0c0c;
+}
+.recommend_paynum{
+	font-size: 26rpx;
+	color: #ababab;
+}
+.store_home_love_store .collect_text{
+  color: #ee2e64;
+}
+.shop_home_QRcode_model{
+  width:100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  text-align: center;
+}
+.shop_home_QRcode_mask{
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background-color: rgba(0,0,0,.4);
+}
+.canv{
+    width: 500rpx; height: 500rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.shop_home_QRcode_image{
+    background-color: #fff;
+    display: inline-block;
+    width: 500rpx;
+    height: 500rpx;
+    margin-top: 200rpx;
+    position: relative;
+    z-index: 2;
+}
+.QRcode_show{
+  display: inline-block;
+}
+.QRcode_hide{
+  display: none;
+}
+.shop_home_qrcode{
+    width: 100%;
+    height: 100%;
+}

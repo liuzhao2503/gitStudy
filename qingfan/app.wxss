@@ -1,0 +1,70 @@
+/**app.wxss**/
+@import "font/font.wxss";
+page{
+    background: #f7f7f7;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-wodeqianbao:before { content: "\e605"; }
+
+.icon-dingwei1:before { content: "\e62b"; }
+
+.icon-0023:before { content: "\e659"; }
+
+.icon-biaozhuanhuan:before { content: "\e607"; }
+
+.icon-shoucang:before { content: "\e617"; }
+
+.icon-dingwei:before { content: "\e693"; }
+
+.icon-xing:before { content: "\e65c"; }
+
+.icon-yue:before { content: "\e66d"; }
+
+.icon-kuaidi:before { content: "\e7ac"; }
+
+.icon-kefu:before { content: "\e60a"; }
+
+.icon-saoma:before { content: "\e609"; }
+
+.icon-ziqu:before { content: "\e63c"; }
+
+.icon-shezhi:before { content: "\e64e"; }
+
+.icon-camera:before { content: "\e670"; }
+
+.icon-Coupons:before { content: "\e64d"; }
+
+.icon-sps:before { content: "\e610"; }
+
+.icon-kefu1:before { content: "\e625"; }
+
+.icon-minus:before { content: "\e637"; }
+
+.icon-plus:before { content: "\e638"; }
+
+.icon-scissors:before { content: "\e61b"; }
+
+.icon-erweima:before { content: "\e66a"; }
+
+.icon-sale_num:before { content: "\e61c"; }
+
+.icon-star:before { content: "\e644"; }
+
+.icon-tongzhi:before { content: "\e73a"; }
+

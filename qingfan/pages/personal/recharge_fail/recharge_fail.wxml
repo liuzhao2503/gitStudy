@@ -1,0 +1,6 @@
+<!--pages/recharge_fail/recharge_fail.wxml-->
+<view class='recharge_fail'>
+  <image class='recharge_fail_image' src='../../img/recharge_fail.png'></image>
+  <text class='recharge_fail_text'>{{recharge_fail_reason}}</text>
+</view>
+<button class='recharge_fail_btn'>{{recharge_fail_btn}}</button>

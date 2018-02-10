@@ -1,0 +1,161 @@
+/* pages/general_evaluate/general_evaluate.wxss */
+.choose{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    background: #f7f7f7;
+    z-index: 100;
+	box-sizing: border-box;
+	height: 116rpx;
+	padding-top: 26rpx;
+}
+.choose_list_wu{
+    text-align: center;
+    color: #999;
+    font-size: 30rpx;
+    padding-top: 50rpx;
+}
+.choose_border{
+	margin: 0 auto;
+	width: 610rpx;
+	height: 68rpx;
+	background: #fff;
+	border-radius: 15rpx;
+	overflow: hidden;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+}
+.button_1{
+	width: 304rpx;
+	height: 68rpx;
+	font-size: 30rpx;
+	background: #ff740e;
+	color: #fff;
+	text-align: center;
+	line-height: 68rpx;
+}
+.button_2{
+	width: 304rpx;
+	height: 68rpx;
+	font-size: 30rpx;
+	background: #fff;
+	color: #2f2e2e;
+	text-align: center;
+	line-height: 68rpx;
+}
+.evaluate{
+	margin: 10rpx auto;
+	width: 750rpx;
+	background: #fff;
+	padding-bottom: 20rpx;
+}
+.evaluate_user{
+	width: 750rpx;
+	height: 121rpx;
+	position: relative;
+}
+.user_headimg{
+	display: inline-block;
+	height: 106rpx;
+	vertical-align: middle;
+	margin: 0 28rpx 0 39rpx;
+	padding-top: 15rpx;
+}
+.headimg{
+	width: 100rpx;
+	height: 100rpx;
+	border-radius: 50%;
+}
+.user_name_view{
+	display: inline-block;
+	width: 250rpx;
+	height: 121rpx;
+	vertical-align: middle;
+}
+.user_name{
+	display: inline-block;
+	font-size: 30rpx;
+	color: #3a3a3a;
+	width: 100%;
+	height: 40rpx;
+	line-height: 40rpx;
+	vertical-align: middle;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.user_evaluate{
+	display: inline-block;
+	height: 80rpx;
+	vertical-align: middle;
+}
+.hairdresser{
+	display: inline-block;
+	height: 121rpx;
+	max-width: 320rpx;
+	line-height: 58rpx;
+	vertical-align: middle;
+	position: absolute;
+	right: 33rpx;
+	font-size: 30rpx;
+	color: #d6d6d6;
+	text-align: right;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.the_star{
+	font-size: 32rpx;
+	line-height: 80rpx;
+}
+.user_text{
+	display: inline-block;
+	width: 633rpx;
+	margin: 0 28rpx 36rpx 49rpx;
+	font-size: 26rpx;
+	color: #595959;
+	line-height: 40rpx;
+}
+.user_photo{
+	padding-left: 49rpx;
+}
+.the_photo{
+	width: 120rpx;
+	height: 110rpx;
+	margin-right: 19rpx;
+}
+.evaluate_time_view{
+	padding-left: 49rpx;
+	text-align: right;
+}
+.evaluate_time{
+	font-size: 30rpx;
+	color: #b8b8b8;
+	margin-right: 35rpx;
+}
+.index_content_list_icon-star{
+    text-align: right;
+    margin-right: 17rpx;
+    line-height: 24rpx;
+    margin-top: 18rpx;
+}
+.index_content_list_icon-star .icon-star{
+    line-height: 35rpx;
+    font-size: 35rpx;
+    margin-left: 13rpx;
+    color: #c0c0c0;
+}
+.index_content_list_icon-star .icon-star.active{
+    color: #d33232;
+}
+.index_content_list_icon-star .icon-star.index_content_starw{
+    background: -webkit-linear-gradient(0deg, #d33232, #d33232 50%, #c0c0c0 0%, #c0c0c0),
+                linear-gradient(90deg, #d33232, #d33232 50%, #c0c0c0 0%, #c0c0c0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.choose_list{
+    padding-top:116rpx; 
+}

@@ -1,0 +1,25 @@
+<view class='bangtel_box'>
+    <view class='bangtel_inputlist'>
+        <view class='bangtel_inputtel'>手机号</view>
+        <input type='number' bindinput='teldata' value='{{tel}}' disabled placeholder='请输入手机号' maxlength='11'></input>
+        <!-- <button class='bangtel_yzbtn'>获取验证码</button> -->
+    </view>
+    <view class='bangtel_inputlist'>
+        <view class='bangtel_inputtel'>验证码</view>
+        <input type='text' bindinput='yzdata' placeholder='请输入验证码'></input>
+        <button class='bangtel_yzbtn' disabled='{{yzbtnstutes}}' bindtap='yzbtn'>{{yzbtntext}}</button>
+    </view>
+    <view class='bangtel_inputlist newbangtel_inputlist'>
+        <view class='bangtel_inputtel'>新手机号</view>
+        <input type='number' bindinput='newteldata' placeholder='请输入新手机号' maxlength='11'></input>
+        <!-- <button class='bangtel_yzbtn'>获取验证码</button> -->
+    </view>
+    <view class='bangtel_inputlist'>
+        <view class='bangtel_inputtel'>验证码</view>
+        <input type='text' bindinput='newyzdata' placeholder='请输入验证码'></input>
+        <button class='bangtel_yzbtn' disabled='{{newyzbtnstutes}}' bindtap='newyzbtn'>{{newyzbtntext}}</button>
+    </view>
+    <view class='bangtel_bottom'>
+        <button bindtap='bangtelbtn'>确定</button>
+    </view>
+</view>

@@ -1,0 +1,39 @@
+
+<view class='returngoods_box'>
+    <view class='returngoods_top'>
+        <view class='returngoods_top_left'>
+            <image src='{{commodityimg}}' class='returngoods_top_left_img'></image>
+        </view>
+        <view class='returngoods_top_right'>
+            <view class='returngoods_top_right_top'>{{commodityname}}</view>
+            <view class='returngoods_top_right_bottom'><view>￥{{commodityPrice}}</view><view class='returngoods_top_right_bottom_right'>X{{commoditynum}}</view></view>
+        </view>
+    </view>
+    <view class='returngoods_Middle'>
+        <view class='returngoods_Middle_qx' bindtap="actionSheetTap">
+            <view class='returngoods_Middle_list_z'>{{menu===""?"取消原因":actionSheetItems[menu].txt}}</view>
+            <image src='../../../img/ljt.png'></image>
+        </view>
+        <view class='returngoods_Middle_list'>
+            <view class='returngoods_Middle_list_z'>优惠金额</view>
+            <view class='returngoods_Middle_list_r'>￥{{favourable}}</view>
+        </view>
+        <view class='returngoods_Middle_list' wx:if="{{express==0}}">
+            <view class='returngoods_Middle_list_z'>快递费</view>
+            <view class='returngoods_Middle_list_r'>￥{{express}}</view>
+        </view>
+        <view class='returngoods_Middle_list'>
+            <view class='returngoods_Middle_list_z'>退款金额</view>
+            <view class='returngoods_Middle_list_r'>￥{{RefundsPrice}}</view>
+        </view>
+    </view>
+    <action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetbindchange">
+        <block wx:for-items="{{actionSheetItems}}" wx:key="index">
+            <action-sheet-item bindtap="bind" data-txt="{{index}}">{{item.txt}}</action-sheet-item>
+        </block>
+        <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+    </action-sheet>
+     <view class='orderdetails_bottom'>
+        <button class='' bindtap='orderdetailsbtn'>确认</button>
+    </view>
+</view>

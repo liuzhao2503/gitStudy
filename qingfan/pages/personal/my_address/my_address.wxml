@@ -1,0 +1,29 @@
+<!--pages/my_address/my_address.wxml-->
+<!-- 我的地址列表 bagin -->
+<view class='my_address'>
+  <view class='my_address_list' wx:for="{{my_address_arr}}"  wx:key="index">
+    <!-- 我的地址信息 bagin -->
+    <view class='my_address_list_contain'>
+      <view class='my_address_list_title'>
+        <text class='my_address_list_name'>{{item.name}}</text>
+        <text class='my_address_list_phone'>{{item.telephone}}</text>
+      </view>
+      <view class='my_address_list_text'>{{item.address}}</view>
+    </view>
+    <!-- 我的地址信息 over -->
+    <!-- 我的地址信息选项 bagin -->
+    <view class='my_address_list_option'>
+        <view class='my_address_choose_add' bindtap='my_address_choose_fun' data-index="{{index}}">
+          <icon class='set_default_address_icon' type="success" size="13" color="{{item.is_default==true?'#db0202' : '#9f9f9f'}}"/>
+          <view class='my_address_defalut_text {{item.is_default==true?"my_address_defalut_text_active" : "my_address_defalut_no"}}'>默认地址</view>
+        </view>
+        <text class='my_address_button' style='margin-left:62rpx;' data-index="{{index}}" bindtap='delete_address'>删除</text>
+        <text class='my_address_button' bindtap='edit_address' data-id="{{item.address_id}}">编辑</text>
+    </view>
+    <!-- 我的地址信息选项 over -->
+  </view>
+</view>
+<!-- 我的地址列表 over -->
+<!-- 底部按钮 bagin -->
+<button class='button_big_submit my_address_submit_btn' bindtap='goto_add_address'>增加收货地址</button>
+<!-- 底部按钮 over -->

@@ -1,0 +1,135 @@
+/* pages/personal_page/personal_page.wxss */
+page{
+  height: 100%;
+}
+view,text{
+  box-sizing: border-box;
+}
+.personal{
+  width: 100%;
+  background-color: #f7f7f7;
+  padding-bottom: 30rpx;
+}
+.personalTop{
+  width: 100%;
+  background-color: #fff;
+  padding:30rpx 23rpx 40rpx;
+  position: relative;
+  box-sizing: border-box;
+}
+.personalHeadImg{
+  width: 154rpx;
+  height: 154rpx;
+  border-radius: 77rpx;
+  position: absolute;
+  left: 23rpx;
+  top: 30rpx;
+}
+.personalTopMsg{
+  width: 100%;
+  overflow: hidden;
+  height: 165rpx;
+}
+.personalTopName{
+  display: inline-block;
+  width:100%;
+  font-size: 36rpx;
+  padding-left:180rpx;
+  margin-top: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.personalTopPhone{
+  display: inline-block;
+  width: 100%;
+  font-size: 30rpx;
+  color: #acacac;
+  padding-left: 180rpx;
+  margin-top: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.personalRightIcon{
+  position: absolute;
+  right: 23rpx;
+  top: 18rpx;
+}
+.icon-tongzhi{
+  width:31rpx;
+  height: 33rpx;
+  margin-right:34rpx;
+  color:#8f8f8f;
+}
+.icon-shezhi{
+  width:34rpx;
+  height: 34rpx;
+  color:#8f8f8f;
+}
+.personalContainer{
+  width: 100%;
+  margin-top:20rpx;
+  background-color: #fff;
+}
+.personalContList{
+  width: 100%;
+  border-bottom: 1rpx solid #f7f7f7;
+  position: relative;
+  height: 100rpx;
+  padding: 0 60rpx 0 45rpx;
+}
+.personalContList:active{
+  background-color: #f7f7f7;
+}
+.personalContainer .iconfont{
+  display: inline-block;
+  width: 35rpx;
+  height: 35rpx;
+  font-size: 40rpx;
+  color: #ee2e64;
+  position: absolute;
+  left: 45rpx;
+  top: 25rpx;
+}
+.personalListText{
+  width: 100%;
+  padding-left:67rpx;
+  display: inline-block;
+  font-size: 30rpx;
+  color: #595959;
+  line-height: 100rpx;
+}
+.personalListRightIcon{
+  position: absolute;
+  right: 60rpx;
+  top: 40rpx;
+  height:25rpx;
+  width: 14rpx;
+}
+
+.shop_home_QRcode_model{
+  width:100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  text-align: center;
+}
+.shop_home_QRcode_mask{
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background-color: rgba(0,0,0,.4);
+}
+.shop_home_QRcode_image{
+  width: 500rpx;
+  height: 500rpx;
+  margin-top: 200rpx;
+  position: relative;
+  z-index: 2;
+}

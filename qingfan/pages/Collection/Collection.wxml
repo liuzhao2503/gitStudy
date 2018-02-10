@@ -1,0 +1,20 @@
+<view class='collection_box'>
+    <view class='index_content_list'>
+        <view class='indexlist_wu' wx:if="{{indexlist.length==0}}">暂无收藏</view>
+        <view class='index_content_list_z' wx:for="{{indexlist}}" wx:for-item="i" bindtap='gotoshop' data-id="{{i.store_id}}">
+            <view class='index_content_list_z_box'>
+                <image src='{{i.interlinking}}'></image>
+                <view class='index_content_list_z_name'>{{i.store_name}}</view>
+                <view class='index_cpmtent_list_z_distance'>距离{{i.distance}}m</view>
+                <view class='index_content_list_icon-star'>
+                    <text class="icon iconfont icon-star {{i.star==1?'index_content_starw':''}} {{i.star>1?'active':''}}"></text>
+                    <text class="icon iconfont icon-star {{i.star==3?'index_content_starw':''}} {{i.star>3?'active':''}}"></text>
+                    <text class="icon iconfont icon-star {{i.star==5?'index_content_starw':''}} {{i.star>5?'active':''}}"></text>
+                    <text class="icon iconfont icon-star {{i.star==7?'index_content_starw':''}} {{i.star>7?'active':''}}"></text>
+                    <text class="icon iconfont icon-star {{i.star==9?'index_content_starw':''}} {{i.star>9?'active':''}}"></text>
+                </view>
+            </view>
+
+        </view>
+    </view>
+</view>

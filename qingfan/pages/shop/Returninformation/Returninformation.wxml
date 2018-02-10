@@ -1,0 +1,36 @@
+<view class="returninformation_box">
+    <view class='returninformation_content returninformation_contenttb'>
+        <view class='returninformation_content_left'>收货地址</view>
+        <view class='returninformation_content_right'>{{address}}</view>
+    </view>
+    <view class='returninformation_content'>
+        <view class='returninformation_content_left'>收货人</view>
+        <view class='returninformation_content_right'>{{name}}</view>
+    </view>
+    <view class='returninformation_content'>
+        <view class='returninformation_content_left'>联系电话</view>
+        <view class='returninformation_content_right'>{{tel}}</view>
+    </view>
+    <view class='returninformation_content'>
+        <view class='returninformation_content_left'>物流公司</view>
+        <view class='returninformation_content_right'>
+            <!-- <input type='text' bindinput='Logisticscompany' placeholder=''></input> -->
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{Companyarray}}">
+                <view class="picker">
+                    {{Company==""?"请选择物流":Company}}
+                </view>
+            </picker>
+        </view>
+    </view>
+    <view class='returninformation_content'>
+        <view class='returninformation_content_left'>快递单号</view>
+        <view class='returninformation_content_right'><input type='text' bindinput='couriernumber' placeholder='请填写快递单号'></input></view>
+    </view>
+    <view class='returninformation_content returninformation_contenttext'>
+        <view class='returninformation_content_left '>发货说明</view>
+        <view class='returninformation_content_right'><textarea type='text' bindinput='contenttext' placeholder='请填写说明'></textarea></view>
+    </view>
+    <view class='returninformation_btn'>
+        <button class='' bindtap='returninformation_btn'>确认</button>
+    </view>
+</view>

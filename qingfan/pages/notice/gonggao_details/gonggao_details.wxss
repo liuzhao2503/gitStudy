@@ -1,0 +1,35 @@
+/* pages/gonggao_details/gonggao_details.wxss */
+@import "../../../wxParse/wxParse.wxss";
+Page{background: #fff;}
+.title_view{
+	width: 100%;
+	height: 96rpx;
+	text-align: center;
+}
+.wxParse{
+    background: #fff;
+    margin: 0 20rpx;
+}
+.wxParse image{
+    width:100%!important;
+
+}
+.title_text{
+	font-size: 32rpx;
+	color: #333;
+}
+.banner_view{
+	width: 100%;
+	text-align: center;
+}
+.banner_photo{
+	width: 94.67%;
+}
+.main{
+	padding: 26rpx 2.67% 0 2.66%;
+	text-align: left;
+}
+.main_text{
+	font-size: 28rpx;
+	color: #595959;
+}

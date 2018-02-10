@@ -1,0 +1,14 @@
+<view class="returninformation_box">
+    <view class='returninformation_content returninformation_contenttb'>
+        <view class='returninformation_content_left'>收货地址</view>
+        <view class='returninformation_content_right'>{{address}}</view>
+    </view>
+    <view class='returninformation_content'>
+        <view class='returninformation_content_left'>收货人</view>
+        <view class='returninformation_content_right'>{{name}}</view>
+    </view>
+    <view class='returninformation_content'>
+        <view class='returninformation_content_left'>联系电话</view>
+        <view class='returninformation_content_right'>{{tel}}</view>
+    </view>
+</view>

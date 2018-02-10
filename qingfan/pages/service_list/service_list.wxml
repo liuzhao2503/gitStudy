@@ -1,0 +1,13 @@
+<view class="serve_view">
+    <view class='serve_list_wu' wx:if="{{serve_list.length==0}}">暂无数据</view>
+	<block wx:for="{{serve_list}}" wx:for-index="index" wx:for-item="serve_list">
+		<view class="serve" bindtap='to_fuwu_details' data-id="{{serve_list.service_id}}">
+			<image src="{{serve_list.service_img}}" class="serve_photo" />
+			<view class="serve_text">
+				<text class="serve_title">{{serve_list.service_name}}</text>
+				<text class="serve_price">￥{{serve_list.service_money}}</text>
+			</view>
+			<image src="../../img/rightIcon.png" class="serve_arrow" />
+		</view>
+	</block>
+</view>

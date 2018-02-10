@@ -1,0 +1,13 @@
+<view class='gonggaolist_wu'>{{gonggaolist.length==0?"暂无公告":""}}</view>
+<block wx:for='{{gonggaolist}}' wx:for-index="index" wx:for-item="gonggaolist" wx:key="index">
+<view class="list_item" data-index="{{index}}"  bindtap="jump" data-id="{{gonggaolist.notice_id}}">
+	<view class="text">
+		<text class="text_title">{{gonggaolist.notice_title}}</text>
+		<text class="text_value">{{gonggaolist.notice_synopsis}}</text>
+	</view>
+	<view class="img">
+		<text class="date">{{gonggaolist.notice_time}}</text>
+		<image src="{{gonggaolist.path}}" class="img_photo" mode="aspectFill" />
+	</view>
+</view>
+</block>

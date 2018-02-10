@@ -1,0 +1,82 @@
+/* pages/shop/Returngoods/Returngoods.wxss */
+.returngoods_box{
+    padding-top:20rpx; 
+}
+.returngoods_top{
+    background-color: #ffffff;
+    display: flex;
+    padding: 21rpx 30rpx;
+    margin-bottom: 20rpx;
+}
+.returngoods_top_left_img{
+    width: 231rpx;
+	height: 164rpx;
+}
+.returngoods_top_right{
+    flex: 1;
+    padding-left: 18rpx;
+}
+.returngoods_top_right_top{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;   
+    font-size: 26rpx;
+    color: #666666;
+    line-height: 38rpx;
+}
+.returngoods_top_right_bottom{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50rpx;
+    font-size: 32rpx;
+    color: #cb0c0c;
+}
+.returngoods_top_right_bottom .returngoods_top_right_bottom_right{
+    font-size: 26rpx;
+    color: #595959;
+}
+.returngoods_Middle_list{
+    font-size: 30rpx;
+    color: #595959;
+    overflow: hidden;
+    height: 100rpx;
+    line-height: 100rpx;
+    background: #fff;
+    border-bottom: 2rpx solid #f7f7f7;
+}
+.returngoods_Middle_list_z{
+    padding-left: 58rpx;
+    float: left;
+}
+.returngoods_Middle_qx{
+    border-bottom: 2rpx solid #f7f7f7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+     height: 100rpx;
+    line-height: 100rpx;
+    background: #fff;
+    font-size: 30rpx;
+    color: #595959;
+}
+.returngoods_Middle_qx image{
+	width: 22rpx;
+	height: 40rpx;
+    margin-right: 34rpx;
+}
+.orderdetails_bottom{
+    position: absolute;
+    bottom: 125rpx;
+    width: 100%;
+}
+.orderdetails_bottom button{
+    width: 90%;
+    background: #ff740e;
+    color: #fff;
+    border-radius: 27rpx;
+    font-size: 36rpx;
+}
+.returngoods_Middle_list_r{
+    padding-left: 229rpx;
+}

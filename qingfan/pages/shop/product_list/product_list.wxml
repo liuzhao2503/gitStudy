@@ -1,0 +1,46 @@
+<!--pages/shop/shoplsit.wxml-->
+<view class='shoplist_box'>
+    <view class='shoplist_top'>
+        <view class='shoplist_top_list {{active==1?"active":""}}' bindtap='shoplistnav' data-nav="1">综合</view>
+        <view class='shoplist_top_list {{active==2?"active":""}}' bindtap='shoplistnav' data-nav="2">销量</view>
+        <view class='shoplist_top_list {{active==3?"active":""}}' bindtap='shoplistnav' data-nav="3">价格
+            <image mode='aspectFill' src='{{Pricejt[Price]}}' class='shoplist_top_listxl'></image>
+        </view>
+        <view class='shoplist_top_list {{active==4?"active":""}}' bindtap='shoplistnav' data-nav="4">分类</view>
+    </view>
+    <view class='shoplist_list_all'>
+        <view class='shoplist_list' wx:for="{{list}}" wx:key="index" bindtap='goto_show' data-id="{{item.goods_id}}">
+            <view class='shoplist_list_z'>
+                <view class='shop_list_ppai' wx:if="{{item.is_terrace==1}}">品牌</view>
+                <image mode='aspectFill' class='shoplist_list_zimg' src='{{item.goods_img}}'></image>
+                <view class='shoplist_list_zname'>{{item.goods_name}}</view>
+                <view class='shoplist_list_zbottom'>
+                    <text class='shoplist_list_zPrice'>￥{{item.goods_price}}</text>
+                    <text class='shoplist_list_zpeople'>{{item.buy}}人付款</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='shoplist_classification {{active==4&&classactive?"active":""}}'>
+        <view class='shoplist_classmask' bindtap='cloneclass'></view>
+        <view class='shoplist_classlsit'>
+            <scroll-view scroll-y style='height:100%;'>
+                <view class='shoplist_classlsit_z shoplist_classlsit_z_border'>
+                    <view class='shoplist_classlsit_top'  bindtap='shoplistallactive'>
+                        <image mode='aspectFill' class='shoplist_classlistimg' src='{{dxclass[classactiveall]}}'></image>
+                        <text>全部商品</text>
+                    </view>
+                </view>
+                <view class='shoplist_classlsit_z' wx:for="{{classlsitall}}" wx:for-item="classitem" wx:key="oneindex" wx:for-index="oneindex">
+                    <view class='shoplist_classlsit_top' bindtap='twoshoplistactive' data-oneindex="{{oneindex}}">
+                        <image mode='aspectFill' class='shoplist_classlistimg' src='{{dxclass[classitem.active]}}'></image>
+                        <text>{{classitem.goods_pname}}</text></view>
+                    <view class='shoplist_classlsit_content_listall'>
+                        <view wx:for="{{classitem.type_name}}"  wx:for-item="btnitem" wx:for-index="twoindex"class='shoplist_classlsit_content_list_z {{btnitem.active?"active":""}}' bindtap='classzbtn' data-oneindex="{{oneindex}}" wx:key="twoindex" data-twoindex="{{twoindex}}">{{btnitem.name}}</view>
+                    </view>
+                </view>
+            </scroll-view>
+            <view class='shoplist_class_bottom'><button bindtap='qdclassbtn'>确定</button></view>
+        </view>
+    </view>
+</view>

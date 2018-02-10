@@ -1,0 +1,54 @@
+<!--pages/shop/Orderdetails/Orderdetails.wxml-->
+<view class='orderdetails_box'>
+    <view class='orderdetails_top'>
+        <view class='orderdetails_top_left'>
+            <icon class='icon icon-dingwei iconfont'></icon>
+        </view>
+        <view class='orderdetails_top_right'>
+            <view class='orderdetails_top_right_top'>
+                <text>收货人：{{addressname}}</text>
+                <text>{{addresstel}}</text>
+            </view>
+            <view class='orderdetails_top_right_bottom'>{{address}}</view>
+        </view>
+    </view>
+    <view class='orderdetails_middle'>
+        <view class='orderdetails_middle_top'>
+            <image mode='aspectFill' class='orderdetails_middle_top_img' src="{{commodityimg}}"></image>
+            <view class='orderdetails_middle_top_left'>
+                <view class='orderdetails_middle_top_left_name'>{{commodityname}}</view>
+                <view class='orderdetails_middle_top_left_Price'>
+                    <text>￥{{commodityPrice}}</text>
+                    <text class='orderdetails_middle_top_left_num'>X {{commoditynum}}</text>
+                </view>
+            </view>
+        </view>
+        <view class='orderdetails_middle_list'>
+            <text>优惠券</text>
+            <text>-¥ {{Coupon}}</text>
+        </view>
+        <view class='orderdetails_middle_list' wx:if="{{express}}">
+            <text>快递费</text>
+            <text>¥ {{express}}</text>
+        </view>
+        <view class='orderdetails_middle_list'>
+            <text>实付款</text>
+            <text>¥ {{Actual}}</text>
+        </view>
+        <view class='orderdetails_middle_list' wx:if="{{states==1}}">
+            <text>快递公司</text>
+            <text>{{expressCompany}}</text>
+        </view>
+        <view class='orderdetails_middle_list' wx:if="{{states==1}}">
+            <text>快递编号</text>
+            <text>{{expressnum}}</text>
+        </view>
+        <view class='orderdetails_middle_list' wx:if="{{states==2}}">
+            <text>兑换码</text>
+            <text>{{Redeemnum}}</text>
+        </view>
+    </view>
+    <view class='orderdetails_bottom'>
+        <button class='orderdetails_bottom_btn' bindtap='orderdetailsbtn'>{{states==1?"确认收货":"取消订单"}}</button>
+    </view>
+</view>

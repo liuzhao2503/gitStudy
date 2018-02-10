@@ -1,0 +1,41 @@
+<!--pages/evaluate/addevaluate/addevaluate.wxml-->
+<view class='addevaluate_box'>
+    <view class='addevaluate_top' >
+        <view class='addevaluate_top_fen'>
+            <text class='addevaluate_top_zfen'>总分</text>
+            <view class='addevaluate_top_fen_star' >
+                <text class='icon iconfont icon-star {{starstutes==1?"index_content_starw":""}} {{starstutes>1?"active":""}}' bindtap='clickstar' data-star="0"></text>
+                <text class='icon iconfont icon-star {{starstutes==3?"index_content_starw":""}} {{starstutes>3?"active":""}}' bindtap='clickstar' data-star="1"></text>
+                <text class='icon iconfont icon-star {{starstutes==5?"index_content_starw":""}} {{starstutes>5?"active":""}}' bindtap='clickstar' data-star="2"></text>
+                <text class='icon iconfont icon-star {{starstutes==7?"index_content_starw":""}} {{starstutes>7?"active":""}}' bindtap='clickstar' data-star="3"></text>
+                <text class='icon iconfont icon-star {{starstutes==9?"index_content_starw":""}} {{starstutes>9?"active":""}}' bindtap='clickstar' data-star="4"></text>
+            </view>
+        </view>
+        <view class='addevaluate_top_text'>
+            <textarea placeholder='说说你的评价！' bindinput='textcontent' maxlength='140'></textarea>
+        </view>
+        <view class='addevaluate_top_img'>
+            <view class='settled_content_input'>
+                <view class="weui-uploader">
+                    <view class="weui-uploader__bd">
+                        <view class="weui-uploader__files">
+                            <block wx:for="{{imageLista}}" wx:for-item="image" wx:key="index">
+                                <view class="weui-uploader__file">
+                                    <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage" data-image="1"></image>
+                                </view>
+                            </block>
+                        </view>
+                        <view class="weui-uploader__input-box">
+                            <view class="weui-uploader__input" bindtap="chooseImage" data-image="1">
+                                <text class='icon iconfont icon-camera'></text>
+                                <view>点击上传</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class='addevaluate_topbottom'>最多上传<text>3</text>张照片</view>
+            </view>
+        </view>
+    </view>
+    <button class='addevaluate_bottombtn' bindtap='addevaluate'>发布</button>
+</view>

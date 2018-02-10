@@ -1,0 +1,13 @@
+<view class="detailstefunds_box">
+    <view class='detailstefunds_top'>
+        <view>请等待处理</view>
+        <view class='detailstefunds_toptime'>还剩 {{daytime}} 天 {{hourtime}} 时 {{Minutetime}} 分</view>
+    </view>
+    <view class='detailstefunds_Middle'>
+        <view class='detailstefunds_Middle_top'>您已成功发起退货申请，请耐心等待后台处理</view>
+        <view class='detailstefunds_Middle_list'>
+            <view>后台同意或者超时未处理，系统将退款给您</view>
+            <view>如果商家拒绝，您可以修改退货申请后再次发起，商家会重新处理</view>
+        </view>
+    </view>
+</view>
